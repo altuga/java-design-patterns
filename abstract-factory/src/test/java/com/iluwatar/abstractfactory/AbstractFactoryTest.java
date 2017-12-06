@@ -51,6 +51,7 @@ public class AbstractFactoryTest {
     final King elfKing = app.getKing(elfFactory);
     assertTrue(elfKing instanceof ElfKing);
     assertEquals(ElfKing.DESCRIPTION, elfKing.getDescription());
+
     final King orcKing = app.getKing(orcFactory);
     assertTrue(orcKing instanceof OrcKing);
     assertEquals(OrcKing.DESCRIPTION, orcKing.getDescription());
@@ -61,6 +62,7 @@ public class AbstractFactoryTest {
     final Castle elfCastle = app.getCastle(elfFactory);
     assertTrue(elfCastle instanceof ElfCastle);
     assertEquals(ElfCastle.DESCRIPTION, elfCastle.getDescription());
+
     final Castle orcCastle = app.getCastle(orcFactory);
     assertTrue(orcCastle instanceof OrcCastle);
     assertEquals(OrcCastle.DESCRIPTION, orcCastle.getDescription());
@@ -71,6 +73,7 @@ public class AbstractFactoryTest {
     final Army elfArmy = app.getArmy(elfFactory);
     assertTrue(elfArmy instanceof ElfArmy);
     assertEquals(ElfArmy.DESCRIPTION, elfArmy.getDescription());
+
     final Army orcArmy = app.getArmy(orcFactory);
     assertTrue(orcArmy instanceof OrcArmy);
     assertEquals(OrcArmy.DESCRIPTION, orcArmy.getDescription());

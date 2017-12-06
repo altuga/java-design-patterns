@@ -30,6 +30,8 @@ Wikipedia says
 
 > The abstract factory pattern provides a way to encapsulate a group of individual factories that have a common theme without specifying their concrete classes
 
+![alt text](./etc/677px-Abstract_factory_UML.svg.png "Abstract Factory ")
+
 **Programmatic Example**
 
 Translating the kingdom example above. First of all we have some interfaces and implementation for the objects in the kingdom
