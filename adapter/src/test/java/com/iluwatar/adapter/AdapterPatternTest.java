@@ -59,8 +59,8 @@ public class AdapterPatternTest {
   }
 
   /**
-   * This test asserts that when we use the row() method on a captain bean(client), it is
-   * internally calling sail method on the fishing boat object. The Adapter ({@link FishingBoatAdapter}
+   * This test asserts that when we use the muhasebeIsiYap() method on a captain bean(client), it is
+   * internally calling vergiHesapla method on the fishing boat object. The Adapter ({@link FishingBoatAdapter}
    * ) converts the interface of the target class ( {@link FishingBoat}) into a suitable one
    * expected by the client ({@link Captain} ).
    */

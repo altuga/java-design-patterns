@@ -20,29 +20,24 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.adapter;
+package com.iluwatar.own;
 
 /**
- * The BilgisayarMuhendisi uses {@link RowingBoat} to vergiHesapla. <br>
- * This is the client in the pattern.
+ *
+ * Adapter class. Adapts the interface of the device ({@link VergilendirmeIslemleri}) into {@link MuhasebeYapabilme}
+ * interface expected by the client ({@link BilgisayarMuhendisi}).
+ *
  */
-public class Captain implements RowingBoat {
+public class MuhasebeciAdapter implements MuhasebeYapabilme {
 
-  private RowingBoat rowingBoat;
+  private VergilendirmeIslemleri vergilendirmeIslemleri;
 
-  public Captain() {}
-
-  public Captain(RowingBoat rowingBoat) {
-    this.rowingBoat = rowingBoat;
-  }
-
-  public void setRowingBoat(RowingBoat rowingBoat) {
-    this.rowingBoat = rowingBoat;
+  public MuhasebeciAdapter() {
+    vergilendirmeIslemleri = new VergilendirmeIslemleri();
   }
 
   @Override
-  public void row() {
-    rowingBoat.row();
+  public void muhasebeIsiYap() {
+    vergilendirmeIslemleri.vergiHesapla();
   }
-
 }

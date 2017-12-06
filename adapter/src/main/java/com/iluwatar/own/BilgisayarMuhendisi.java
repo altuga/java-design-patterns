@@ -20,29 +20,29 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.adapter;
+package com.iluwatar.own;
 
 /**
- * The BilgisayarMuhendisi uses {@link RowingBoat} to vergiHesapla. <br>
+ * The BilgisayarMuhendisi uses {@link MuhasebeYapabilme}  <br>
  * This is the client in the pattern.
  */
-public class Captain implements RowingBoat {
+public class BilgisayarMuhendisi implements MuhasebeYapabilme {
 
-  private RowingBoat rowingBoat;
+  private MuhasebeYapabilme rowingBoat;
 
-  public Captain() {}
+  public BilgisayarMuhendisi() {}
 
-  public Captain(RowingBoat rowingBoat) {
+  public BilgisayarMuhendisi(MuhasebeYapabilme rowingBoat) {
     this.rowingBoat = rowingBoat;
   }
 
-  public void setRowingBoat(RowingBoat rowingBoat) {
+  public void setMuhasebeYapabilme(MuhasebeYapabilme rowingBoat) {
     this.rowingBoat = rowingBoat;
   }
 
   @Override
-  public void row() {
-    rowingBoat.row();
+  public void muhasebeIsiYap() {
+    rowingBoat.muhasebeIsiYap();
   }
 
 }

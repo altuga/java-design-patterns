@@ -20,29 +20,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.adapter;
+package com.iluwatar.own;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * The BilgisayarMuhendisi uses {@link RowingBoat} to vergiHesapla. <br>
- * This is the client in the pattern.
+ *
+ * Device class (adaptee in the pattern). We want to reuse this class.
+ * Fishing boat moves by sailing.
+ *
  */
-public class Captain implements RowingBoat {
+public class VergilendirmeIslemleri {
 
-  private RowingBoat rowingBoat;
+  private static final Logger LOGGER = LoggerFactory.getLogger(VergilendirmeIslemleri.class);
 
-  public Captain() {}
-
-  public Captain(RowingBoat rowingBoat) {
-    this.rowingBoat = rowingBoat;
-  }
-
-  public void setRowingBoat(RowingBoat rowingBoat) {
-    this.rowingBoat = rowingBoat;
-  }
-
-  @Override
-  public void row() {
-    rowingBoat.row();
+  public void vergiHesapla() {
+    LOGGER.info("Vergileri hesaplarim" );
   }
 
 }

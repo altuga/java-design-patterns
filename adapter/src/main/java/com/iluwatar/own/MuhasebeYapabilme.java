@@ -20,29 +20,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.adapter;
+package com.iluwatar.own;
 
 /**
- * The BilgisayarMuhendisi uses {@link RowingBoat} to vergiHesapla. <br>
- * This is the client in the pattern.
+ * The interface expected by the client.<br>
+ * A rowing boat is rowed to move.
+ *
  */
-public class Captain implements RowingBoat {
+public interface MuhasebeYapabilme {
 
-  private RowingBoat rowingBoat;
-
-  public Captain() {}
-
-  public Captain(RowingBoat rowingBoat) {
-    this.rowingBoat = rowingBoat;
-  }
-
-  public void setRowingBoat(RowingBoat rowingBoat) {
-    this.rowingBoat = rowingBoat;
-  }
-
-  @Override
-  public void row() {
-    rowingBoat.row();
-  }
+  void muhasebeIsiYap();
 
 }
