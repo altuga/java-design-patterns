@@ -28,21 +28,21 @@ package com.iluwatar.own;
  */
 public class BilgisayarMuhendisi implements MuhasebeYapabilme {
 
-  private MuhasebeYapabilme rowingBoat;
+  private MuhasebeYapabilme muhasebeYapabilme;
 
   public BilgisayarMuhendisi() {}
 
-  public BilgisayarMuhendisi(MuhasebeYapabilme rowingBoat) {
-    this.rowingBoat = rowingBoat;
+  public BilgisayarMuhendisi(MuhasebeYapabilme muhasebeYapabilme) {
+    this.muhasebeYapabilme = muhasebeYapabilme;
   }
 
-  public void setMuhasebeYapabilme(MuhasebeYapabilme rowingBoat) {
-    this.rowingBoat = rowingBoat;
+  public void setMuhasebeYapabilme(MuhasebeYapabilme muhasebeYapabilme) {
+    this.muhasebeYapabilme = muhasebeYapabilme;
   }
 
   @Override
   public void muhasebeIsiYap() {
-    rowingBoat.muhasebeIsiYap();
+    muhasebeYapabilme.muhasebeIsiYap();
   }
 
 }

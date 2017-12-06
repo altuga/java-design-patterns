@@ -20,24 +20,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.adapter;
+package com.iluwatar.own;
+
+
+import org.junit.Test;
+
+import java.io.IOException;
 
 /**
- *
- * Adapter class. Adapts the interface of the device ({@link FishingBoat}) into {@link RowingBoat}
- * interface expected by the client ({@link Captain}).
- *
+ * Tests that Adapter example runs without errors.
  */
-public class FishingBoatAdapter implements RowingBoat {
-
-  private FishingBoat boat;
-
-  public FishingBoatAdapter() {
-    boat = new FishingBoat();
-  }
-
-  @Override
-  public void row() {
-    boat.sail();
+public class AppTest {
+  @Test
+  public void test() throws IOException {
+    String[] args = {};
+    App.main(args);
   }
 }
