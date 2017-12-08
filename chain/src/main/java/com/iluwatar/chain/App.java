@@ -30,8 +30,8 @@ package com.iluwatar.chain;
  * chain. A mechanism also exists for adding new processing objects to the end of this chain.
  * <p>
  * In this example we organize the request handlers ({@link RequestHandler}) into a chain where each
- * handler has a chance to act on the request on its turn. Here the king ({@link OrcKing}) makes
- * requests and the military orcs ({@link OrcCommander}, {@link OrcOfficer}, {@link OrcSoldier})
+ * handler has a chance to act on the request on its turn. Here the king ({@link EmailClient}) makes
+ * requests and the military orcs ({@link GmailHandler}, {@link YahooHandler}, {@link HotmailHandler})
  * form the handler chain.
  * 
  */
@@ -44,10 +44,11 @@ public class App {
    */
   public static void main(String[] args) {
 
-    OrcKing king = new OrcKing();
-    king.makeRequest(new Request(RequestType.DEFEND_CASTLE, "defend castle"));
-    king.makeRequest(new Request(RequestType.TORTURE_PRISONER, "torture prisoner"));
-    king.makeRequest(new Request(RequestType.COLLECT_TAX, "collect tax"));
+    EmailClient emailClient = new EmailClient();
+    emailClient.makeRequest(new Request(RequestType.GMAIL, "Gmail"));
+    emailClient.makeRequest(new Request(RequestType.YAHOO, "Yahoo"));
+    emailClient.makeRequest(new Request(RequestType.HOTMAIL, "Hotmail"));
+    emailClient.makeRequest(new Request(RequestType.YANDEX, "Yandex"));
 
   }
 }

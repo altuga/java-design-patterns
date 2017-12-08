@@ -24,18 +24,18 @@ package com.iluwatar.chain;
 
 /**
  * 
- * OrcOfficer
+ * GmailHandler
  *
  */
-public class OrcOfficer extends RequestHandler {
+public class GmailHandler extends RequestHandler {
 
-  public OrcOfficer(RequestHandler handler) {
+  public GmailHandler(RequestHandler handler) {
     super(handler);
   }
 
   @Override
   public void handleRequest(Request req) {
-    if (req.getRequestType().equals(RequestType.TORTURE_PRISONER)) {
+    if (req.getRequestType().equals(RequestType.GMAIL)) {
       printHandling(req);
       req.markHandled();
     } else {
@@ -45,7 +45,6 @@ public class OrcOfficer extends RequestHandler {
 
   @Override
   public String toString() {
-    return "Orc officer";
+    return "Gmail Handler";
   }
-
 }

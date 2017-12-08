@@ -46,6 +46,8 @@ public abstract class RequestHandler {
   public void handleRequest(Request req) {
     if (next != null) {
       next.handleRequest(req);
+    } else {
+      LOGGER.info("{} cannot be handled \"{}\"", req);
     }
   }
 

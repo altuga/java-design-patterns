@@ -24,18 +24,18 @@ package com.iluwatar.chain;
 
 /**
  * 
- * OrcCommander
+ * YahooHandler
  *
  */
-public class OrcCommander extends RequestHandler {
+public class YahooHandler extends RequestHandler {
 
-  public OrcCommander(RequestHandler handler) {
+  public YahooHandler(RequestHandler handler) {
     super(handler);
   }
 
   @Override
   public void handleRequest(Request req) {
-    if (req.getRequestType().equals(RequestType.DEFEND_CASTLE)) {
+    if (req.getRequestType().equals(RequestType.YAHOO)) {
       printHandling(req);
       req.markHandled();
     } else {
@@ -45,6 +45,7 @@ public class OrcCommander extends RequestHandler {
 
   @Override
   public String toString() {
-    return "Orc commander";
+    return "Yahoo Handler";
   }
+
 }

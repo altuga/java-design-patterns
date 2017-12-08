@@ -24,18 +24,18 @@ package com.iluwatar.chain;
 
 /**
  * 
- * OrcSoldier
+ * HotmailHandler
  *
  */
-public class OrcSoldier extends RequestHandler {
+public class HotmailHandler extends RequestHandler {
 
-  public OrcSoldier(RequestHandler handler) {
+  public HotmailHandler(RequestHandler handler) {
     super(handler);
   }
 
   @Override
   public void handleRequest(Request req) {
-    if (req.getRequestType().equals(RequestType.COLLECT_TAX)) {
+    if (req.getRequestType().equals(RequestType.HOTMAIL)) {
       printHandling(req);
       req.markHandled();
     } else {
@@ -45,6 +45,6 @@ public class OrcSoldier extends RequestHandler {
 
   @Override
   public String toString() {
-    return "Orc soldier";
+    return "Hotmail Handler";
   }
 }

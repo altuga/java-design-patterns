@@ -24,19 +24,19 @@ package com.iluwatar.chain;
 
 /**
  * 
- * OrcKing makes requests that are handled by the chain.
+ * EmailClient makes requests that are handled by the chain.
  * 
  */
-public class OrcKing {
+public class EmailClient {
 
   RequestHandler chain;
 
-  public OrcKing() {
+  public EmailClient() {
     buildChain();
   }
 
   private void buildChain() {
-    chain = new OrcCommander(new OrcOfficer(new OrcSoldier(null)));
+    chain = new GmailHandler(new YahooHandler(new HotmailHandler(null)));
   }
 
   public void makeRequest(Request req) {
