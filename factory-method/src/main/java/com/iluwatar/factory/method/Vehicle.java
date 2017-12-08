@@ -23,23 +23,10 @@
 package com.iluwatar.factory.method;
 
 /**
- * ElfWeapon.
+ * Vehicle interface.
  */
-public class ElfWeapon implements Weapon {
+public interface Vehicle {
 
-  private WeaponType weaponType;
+  VehicleType getVehicleType();
 
-  public ElfWeapon(WeaponType weaponType) {
-    this.weaponType = weaponType;
-  }
-
-  @Override
-  public String toString() {
-    return "Elven " + weaponType;
-  }
-
-  @Override
-  public WeaponType getWeaponType() {
-    return weaponType;
-  }
 }

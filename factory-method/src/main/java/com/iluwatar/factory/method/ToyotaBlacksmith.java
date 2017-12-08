@@ -24,21 +24,13 @@ package com.iluwatar.factory.method;
 
 /**
  * 
- * WeaponType enumeration
- *
+ * Concrete subclass for creating new objects.
+ * 
  */
-public enum WeaponType {
+public class ToyotaBlacksmith implements Blacksmith {
 
-  SHORT_SWORD("short sword"), SPEAR("spear"), AXE("axe"), UNDEFINED("");
-
-  private String title;
-
-  WeaponType(String title) {
-    this.title = title;
+  public Vehicle manufactureVehicle(VehicleType vehicleType) {
+    return new ToyotaVehicle(vehicleType);
   }
 
-  @Override
-  public String toString() {
-    return title;
-  }
 }

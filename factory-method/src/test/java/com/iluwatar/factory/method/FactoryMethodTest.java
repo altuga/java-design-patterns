@@ -35,67 +35,67 @@ import org.junit.Test;
  * derived classes—rather than by calling a constructor.
  * 
  * <p>Factory produces the object of its liking. 
- * The weapon {@link Weapon} manufactured by the
+ * The weapon {@link Vehicle} manufactured by the
  * blacksmith depends on the kind of factory implementation it is referring to.
  * </p>
  */
 public class FactoryMethodTest {
 
   /**
-   * Testing {@link OrcBlacksmith} to produce a SPEAR asserting that the Weapon is an instance 
-   * of {@link OrcWeapon}.
+   * Testing {@link FordBlacksmith} to produce a HYBRID asserting that the Vehicle is an instance
+   * of {@link FordVehicle}.
    */
   @Test
-  public void testOrcBlacksmithWithSpear() {
-    Blacksmith blacksmith = new OrcBlacksmith();
-    Weapon weapon = blacksmith.manufactureWeapon(WeaponType.SPEAR);
-    verifyWeapon(weapon, WeaponType.SPEAR, OrcWeapon.class);
+  public void testFordBlacksmithWithHybrid() {
+    Blacksmith blacksmith = new FordBlacksmith();
+    Vehicle vehicle = blacksmith.manufactureVehicle(VehicleType.HYBRID);
+    verifyVehicle(vehicle, VehicleType.HYBRID, FordVehicle.class);
   }
 
   /**
-   * Testing {@link OrcBlacksmith} to produce a AXE asserting that the Weapon is an instance
-   *  of {@link OrcWeapon}.
+   * Testing {@link FordBlacksmith} to produce a SEDAN asserting that the Vehicle is an instance
+   *  of {@link FordVehicle}.
    */
   @Test
-  public void testOrcBlacksmithWithAxe() {
-    Blacksmith blacksmith = new OrcBlacksmith();
-    Weapon weapon = blacksmith.manufactureWeapon(WeaponType.AXE);
-    verifyWeapon(weapon, WeaponType.AXE, OrcWeapon.class);
+  public void testFordBlacksmithWithSedan() {
+    Blacksmith blacksmith = new FordBlacksmith();
+    Vehicle vehicle = blacksmith.manufactureVehicle(VehicleType.SEDAN);
+    verifyVehicle(vehicle, VehicleType.SEDAN, FordVehicle.class);
   }
 
   /**
-   * Testing {@link ElfBlacksmith} to produce a SHORT_SWORD asserting that the Weapon is an
-   * instance of {@link ElfWeapon}.
+   * Testing {@link ToyotaBlacksmith} to produce a TRUCK asserting that the Vehicle is an
+   * instance of {@link ToyotaVehicle}.
    */
   @Test
-  public void testElfBlacksmithWithShortSword() {
-    Blacksmith blacksmith = new ElfBlacksmith();
-    Weapon weapon = blacksmith.manufactureWeapon(WeaponType.SHORT_SWORD);
-    verifyWeapon(weapon, WeaponType.SHORT_SWORD, ElfWeapon.class);
+  public void testToyotaBlacksmithWithTruck() {
+    Blacksmith blacksmith = new ToyotaBlacksmith();
+    Vehicle vehicle = blacksmith.manufactureVehicle(VehicleType.TRUCK);
+    verifyVehicle(vehicle, VehicleType.TRUCK, ToyotaVehicle.class);
   }
 
   /**
-   * Testing {@link ElfBlacksmith} to produce a SPEAR asserting that the Weapon is an instance
-   * of {@link ElfWeapon}.
+   * Testing {@link ToyotaBlacksmith} to produce a HYBRID asserting that the Vehicle is an instance
+   * of {@link ToyotaVehicle}.
    */
   @Test
-  public void testElfBlacksmithWithSpear() {
-    Blacksmith blacksmith = new ElfBlacksmith();
-    Weapon weapon = blacksmith.manufactureWeapon(WeaponType.SPEAR);
-    verifyWeapon(weapon, WeaponType.SPEAR, ElfWeapon.class);
+  public void testToyotaBlacksmithWithHybrid() {
+    Blacksmith blacksmith = new ToyotaBlacksmith();
+    Vehicle vehicle = blacksmith.manufactureVehicle(VehicleType.HYBRID);
+    verifyVehicle(vehicle, VehicleType.HYBRID, ToyotaVehicle.class);
   }
 
   /**
-   * This method asserts that the weapon object that is passed is an instance of the clazz and the
-   * weapon is of type expectedWeaponType.
+   * This method asserts that the vehicle object that is passed is an instance of the clazz and the
+   * vehicle is of type expectedVehicleType.
    * 
-   * @param weapon weapon object which is to be verified
-   * @param expectedWeaponType expected WeaponType of the weapon
-   * @param clazz expected class of the weapon
+   * @param vehicle vehicle object which is to be verified
+   * @param expectedVehicleType expected VehicleType of the vehicle
+   * @param clazz expected class of the vehicle
    */
-  private void verifyWeapon(Weapon weapon, WeaponType expectedWeaponType, Class<?> clazz) {
-    assertTrue("Weapon must be an object of: " + clazz.getName(), clazz.isInstance(weapon));
-    assertEquals("Weapon must be of weaponType: " + expectedWeaponType, expectedWeaponType,
-        weapon.getWeaponType());
+  private void verifyVehicle(Vehicle vehicle, VehicleType expectedVehicleType, Class<?> clazz) {
+    assertTrue("Vehicle must be an object of: " + clazz.getName(), clazz.isInstance(vehicle));
+    assertEquals("Vehicle must be of weaponType: " + expectedVehicleType, expectedVehicleType,
+        vehicle.getVehicleType());
   }
 }

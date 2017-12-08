@@ -23,14 +23,23 @@
 package com.iluwatar.factory.method;
 
 /**
- * 
- * Concrete subclass for creating new objects.
- * 
+ * ToyotaVehicle.
  */
-public class ElfBlacksmith implements Blacksmith {
+public class ToyotaVehicle implements Vehicle {
 
-  public Weapon manufactureWeapon(WeaponType weaponType) {
-    return new ElfWeapon(weaponType);
+  private VehicleType vehicleType;
+
+  public ToyotaVehicle(VehicleType vehicleType) {
+    this.vehicleType = vehicleType;
   }
 
+  @Override
+  public String toString() {
+    return "Toyota " + vehicleType;
+  }
+
+  @Override
+  public VehicleType getVehicleType() {
+    return vehicleType;
+  }
 }

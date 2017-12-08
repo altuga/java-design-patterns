@@ -37,18 +37,18 @@ Taking our blacksmith example above. First of all we have a blacksmith interface
 
 ```
 public interface Blacksmith {
-  Weapon manufactureWeapon(WeaponType weaponType);
+  Weapon manufactureWeapon(WeaponType vehicleType);
 }
 
 public class ElfBlacksmith implements Blacksmith {
-  public Weapon manufactureWeapon(WeaponType weaponType) {
-    return new ElfWeapon(weaponType);
+  public Weapon manufactureWeapon(WeaponType vehicleType) {
+    return new ElfWeapon(vehicleType);
   }
 }
 
 public class OrcBlacksmith implements Blacksmith {
-  public Weapon manufactureWeapon(WeaponType weaponType) {
-    return new OrcWeapon(weaponType);
+  public Weapon manufactureWeapon(WeaponType vehicleType) {
+    return new OrcWeapon(vehicleType);
   }
 }
 ```

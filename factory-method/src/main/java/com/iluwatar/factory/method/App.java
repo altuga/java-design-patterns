@@ -34,8 +34,8 @@ import org.slf4j.LoggerFactory;
  * derived classes—rather than by calling a constructor.
  * <p>
  * In this Factory Method example we have an interface ({@link Blacksmith}) with a method for
- * creating objects ({@link Blacksmith#manufactureWeapon}). The concrete subclasses (
- * {@link OrcBlacksmith}, {@link ElfBlacksmith}) then override the method to produce objects of
+ * creating objects ({@link Blacksmith#manufactureVehicle}). The concrete subclasses (
+ * {@link FordBlacksmith}, {@link ToyotaBlacksmith}) then override the method to produce objects of
  * their liking.
  * 
  */
@@ -47,10 +47,9 @@ public class App {
   
   /**
    * Creates an instance of <code>App</code> which will use <code>blacksmith</code> to manufacture 
-   * the weapons for war.
+   * the Vehicle .
    * <code>App</code> is unaware which concrete implementation of {@link Blacksmith} it is using.
-   * The decision of which blacksmith implementation to use may depend on configuration, or
-   * the type of rival in war.
+   * The decision of which blacksmith implementation to use may depend on configuration
    * @param blacksmith a non-null implementation of blacksmith
    */
   public App(Blacksmith blacksmith) {
@@ -63,20 +62,21 @@ public class App {
    * @param args command line args
    */
   public static void main(String[] args) {
-    // Lets go to war with Orc weapons
-    App app = new App(new OrcBlacksmith());
-    app.manufactureWeapons();
-    
-    // Lets go to war with Elf weapons
-    app = new App(new ElfBlacksmith());
-    app.manufactureWeapons();
+
+    // Lets produce Ford Vehicles
+    App app = new App(new FordBlacksmith());
+    app.manufactureVehicles();
+
+    // Lets produce Toyota Vehicles
+    app = new App(new ToyotaBlacksmith());
+    app.manufactureVehicles();
   }
   
-  private void manufactureWeapons() {
-    Weapon weapon;
-    weapon = blacksmith.manufactureWeapon(WeaponType.SPEAR);
-    LOGGER.info(weapon.toString());
-    weapon = blacksmith.manufactureWeapon(WeaponType.AXE);
-    LOGGER.info(weapon.toString());
+  private void manufactureVehicles() {
+    Vehicle vehicle;
+    vehicle = blacksmith.manufactureVehicle(VehicleType.HYBRID);
+    LOGGER.info(vehicle.toString());
+    vehicle = blacksmith.manufactureVehicle(VehicleType.SEDAN);
+    LOGGER.info(vehicle.toString());
   }
 }

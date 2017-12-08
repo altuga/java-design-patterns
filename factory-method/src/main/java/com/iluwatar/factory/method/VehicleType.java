@@ -23,23 +23,22 @@
 package com.iluwatar.factory.method;
 
 /**
- * OrcWeapon.
+ * 
+ * VehicleType enumeration
+ *
  */
-public class OrcWeapon implements Weapon {
+public enum VehicleType {
 
-  private WeaponType weaponType;
+  TRUCK("truck"), HYBRID("hybrid"), SEDAN("sedan"), UNDEFINED("");
 
-  public OrcWeapon(WeaponType weaponType) {
-    this.weaponType = weaponType;
+  private String title;
+
+  VehicleType(String title) {
+    this.title = title;
   }
 
   @Override
   public String toString() {
-    return "Orcish " + weaponType;
-  }
-
-  @Override
-  public WeaponType getWeaponType() {
-    return weaponType;
+    return title;
   }
 }

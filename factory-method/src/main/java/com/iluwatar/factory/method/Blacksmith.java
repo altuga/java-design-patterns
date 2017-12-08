@@ -29,6 +29,6 @@ package com.iluwatar.factory.method;
  */
 public interface Blacksmith {
 
-  Weapon manufactureWeapon(WeaponType weaponType);
+  Vehicle manufactureVehicle(VehicleType vehicleType);
 
 }

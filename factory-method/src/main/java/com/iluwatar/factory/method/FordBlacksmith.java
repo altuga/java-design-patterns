@@ -23,10 +23,13 @@
 package com.iluwatar.factory.method;
 
 /**
- * Weapon interface.
+ * 
+ * Concrete subclass for creating new objects.
+ * 
  */
-public interface Weapon {
+public class FordBlacksmith implements Blacksmith {
 
-  WeaponType getWeaponType();
-
+  public Vehicle manufactureVehicle(VehicleType vehicleType) {
+    return new FordVehicle(vehicleType);
+  }
 }

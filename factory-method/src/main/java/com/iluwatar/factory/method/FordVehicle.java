@@ -23,13 +23,23 @@
 package com.iluwatar.factory.method;
 
 /**
- * 
- * Concrete subclass for creating new objects.
- * 
+ * FordVehicle.
  */
-public class OrcBlacksmith implements Blacksmith {
+public class FordVehicle implements Vehicle {
 
-  public Weapon manufactureWeapon(WeaponType weaponType) {
-    return new OrcWeapon(weaponType);
+  private VehicleType vehicleType;
+
+  public FordVehicle(VehicleType vehicleType) {
+    this.vehicleType = vehicleType;
+  }
+
+  @Override
+  public String toString() {
+    return "Ford " + vehicleType;
+  }
+
+  @Override
+  public VehicleType getVehicleType() {
+    return vehicleType;
   }
 }
