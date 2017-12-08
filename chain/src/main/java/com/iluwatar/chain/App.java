@@ -48,7 +48,7 @@ public class App {
     emailClient.makeRequest(new Request(RequestType.GMAIL, "Gmail"));
     emailClient.makeRequest(new Request(RequestType.YAHOO, "Yahoo"));
     emailClient.makeRequest(new Request(RequestType.HOTMAIL, "Hotmail"));
-    emailClient.makeRequest(new Request(RequestType.YANDEX, "Yandex"));
+    emailClient.makeRequest(new Request(RequestType.YANDEX, "Yandex")); // no handler
 
   }
 }
