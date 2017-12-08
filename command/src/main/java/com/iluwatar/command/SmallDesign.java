@@ -24,19 +24,37 @@ package com.iluwatar.command;
 
 /**
  * 
- * Goblin is the target of the spells
+ * SmallDesign is a concrete command
  *
  */
-public class Goblin extends Target {
+public class SmallDesign extends Command {
 
-  public Goblin() {
-    setSize(Size.NORMAL);
-    setVisibility(Visibility.VISIBLE);
+  private Size oldSize;
+  private Target target;
+
+  @Override
+  public void execute(Target target) {
+    oldSize = target.getSize();
+    target.setSize(Size.SMALL);
+    this.target = target;
+  }
+
+  @Override
+  public void undo() {
+    if (oldSize != null && target != null) {
+      Size temp = target.getSize();
+      target.setSize(oldSize);
+      oldSize = temp;
+    }
+  }
+
+  @Override
+  public void redo() {
+    undo();
   }
 
   @Override
   public String toString() {
-    return "Goblin";
+    return "Small Design";
   }
-
 }

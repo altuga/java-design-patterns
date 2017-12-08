@@ -24,35 +24,19 @@ package com.iluwatar.command;
 
 /**
  * 
- * InvisibilitySpell is a concrete command
+ * WebPage is the target of the actions
  *
  */
-public class InvisibilitySpell extends Command {
+public class WebPage extends Target {
 
-  private Target target;
-
-  @Override
-  public void execute(Target target) {
-    target.setVisibility(Visibility.INVISIBLE);
-    this.target = target;
-  }
-
-  @Override
-  public void undo() {
-    if (target != null) {
-      target.setVisibility(Visibility.VISIBLE);
-    }
-  }
-
-  @Override
-  public void redo() {
-    if (target != null) {
-      target.setVisibility(Visibility.INVISIBLE);
-    }
+  public WebPage() {
+    setSize(Size.NORMAL);
+    setMobility(Mobility.MOBILE);
   }
 
   @Override
   public String toString() {
-    return "Invisibility spell";
+    return "WebPage";
   }
+
 }

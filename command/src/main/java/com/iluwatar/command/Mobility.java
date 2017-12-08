@@ -24,37 +24,21 @@ package com.iluwatar.command;
 
 /**
  * 
- * ShrinkSpell is a concrete command
+ * Enumeration for target visibility.
  *
  */
-public class ShrinkSpell extends Command {
+public enum Mobility {
 
-  private Size oldSize;
-  private Target target;
+  MOBILE("mobileViewEnabled"), MOBILE_DISABLED("mobileViewDisenabled");
 
-  @Override
-  public void execute(Target target) {
-    oldSize = target.getSize();
-    target.setSize(Size.SMALL);
-    this.target = target;
-  }
+  private String title;
 
-  @Override
-  public void undo() {
-    if (oldSize != null && target != null) {
-      Size temp = target.getSize();
-      target.setSize(oldSize);
-      oldSize = temp;
-    }
-  }
-
-  @Override
-  public void redo() {
-    undo();
+  Mobility(String title) {
+    this.title = title;
   }
 
   @Override
   public String toString() {
-    return "Shrink spell";
+    return title;
   }
 }

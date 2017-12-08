@@ -42,7 +42,7 @@ import org.junit.Test;
  */
 public class CommandTest {
 
-  private static final String GOBLIN = "Goblin";
+  private static final String WEB_PAGE = "WebPage";
 
   /**
    * This test verifies that when the wizard casts spells on the goblin. The wizard keeps track of
@@ -52,42 +52,42 @@ public class CommandTest {
   @Test
   public void testCommand() {
 
-    Wizard wizard = new Wizard();
-    Goblin goblin = new Goblin();
+    User user = new User();
+    WebPage webPage = new WebPage();
 
-    wizard.castSpell(new ShrinkSpell(), goblin);
-    verifyGoblin(goblin, GOBLIN, Size.SMALL, Visibility.VISIBLE);
+    user.action(new SmallDesign(), webPage);
+    verifyGoblin(webPage, WEB_PAGE, Size.SMALL, Mobility.MOBILE);
 
-    wizard.castSpell(new InvisibilitySpell(), goblin);
-    verifyGoblin(goblin, GOBLIN, Size.SMALL, Visibility.INVISIBLE);
+    user.action(new ResponsiveDesign(), webPage);
+    verifyGoblin(webPage, WEB_PAGE, Size.SMALL, Mobility.MOBILE_DISABLED);
 
-    wizard.undoLastSpell();
-    verifyGoblin(goblin, GOBLIN, Size.SMALL, Visibility.VISIBLE);
+    user.undoLastAction();
+    verifyGoblin(webPage, WEB_PAGE, Size.SMALL, Mobility.MOBILE);
 
-    wizard.undoLastSpell();
-    verifyGoblin(goblin, GOBLIN, Size.NORMAL, Visibility.VISIBLE);
+    user.undoLastAction();
+    verifyGoblin(webPage, WEB_PAGE, Size.NORMAL, Mobility.MOBILE);
 
-    wizard.redoLastSpell();
-    verifyGoblin(goblin, GOBLIN, Size.SMALL, Visibility.VISIBLE);
+    user.redoLastAction();
+    verifyGoblin(webPage, WEB_PAGE, Size.SMALL, Mobility.MOBILE);
 
-    wizard.redoLastSpell();
-    verifyGoblin(goblin, GOBLIN, Size.SMALL, Visibility.INVISIBLE);
+    user.redoLastAction();
+    verifyGoblin(webPage, WEB_PAGE, Size.SMALL, Mobility.MOBILE_DISABLED);
   }
 
   /**
-   * This method asserts that the passed goblin object has the name as expectedName, size as
+   * This method asserts that the passed webPage object has the name as expectedName, size as
    * expectedSize and visibility as expectedVisibility.
    *
-   * @param goblin a goblin object whose state is to be verified against other parameters
-   * @param expectedName expectedName of the goblin
-   * @param expectedSize expected size of the goblin
-   * @param expectedVisibilty exepcted visibility of the goblin
+   * @param webPage a webPage object whose state is to be verified against other parameters
+   * @param expectedName expectedName of the webPage
+   * @param expectedSize expected size of the webPage
+   * @param expectedVisibilty exepcted visibility of the webPage
    */
-  private void verifyGoblin(Goblin goblin, String expectedName, Size expectedSize,
-      Visibility expectedVisibilty) {
-    assertEquals("Goblin's name must be same as expectedName", expectedName, goblin.toString());
-    assertEquals("Goblin's size must be same as expectedSize", expectedSize, goblin.getSize());
-    assertEquals("Goblin's visibility must be same as expectedVisibility", expectedVisibilty,
-        goblin.getVisibility());
+  private void verifyGoblin(WebPage webPage, String expectedName, Size expectedSize,
+                            Mobility expectedVisibilty) {
+    assertEquals("WebPage's name must be same as expectedName", expectedName, webPage.toString());
+    assertEquals("WebPage's size must be same as expectedSize", expectedSize, webPage.getSize());
+    assertEquals("WebPage's visibility must be same as expectedVisibility", expectedVisibilty,
+        webPage.getMobility());
   }
 }

@@ -36,7 +36,7 @@ public abstract class Target {
 
   private Size size;
 
-  private Visibility visibility;
+  private Mobility mobility;
 
   public Size getSize() {
     return size;
@@ -46,12 +46,12 @@ public abstract class Target {
     this.size = size;
   }
 
-  public Visibility getVisibility() {
-    return visibility;
+  public Mobility getMobility() {
+    return mobility;
   }
 
-  public void setVisibility(Visibility visibility) {
-    this.visibility = visibility;
+  public void setMobility(Mobility mobility) {
+    this.mobility = mobility;
   }
 
   @Override
@@ -61,6 +61,6 @@ public abstract class Target {
    * Print status
    */
   public void printStatus() {
-    LOGGER.info("{}, [size={}] [visibility={}]", this, getSize(), getVisibility());
+    LOGGER.info("{}, [size={}] [mobility={}]", this, getSize(), getMobility());
   }
 }

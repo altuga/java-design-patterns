@@ -22,63 +22,37 @@
  */
 package com.iluwatar.command;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.Deque;
-import java.util.LinkedList;
-
 /**
  * 
- * Wizard is the invoker of the commands
+ * ResponsiveDesign is a concrete command
  *
  */
-public class Wizard {
+public class ResponsiveDesign extends Command {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(Wizard.class);
+  private Target target;
 
-  private Deque<Command> undoStack = new LinkedList<>();
-  private Deque<Command> redoStack = new LinkedList<>();
-
-  public Wizard() {
-    // comment to ignore sonar issue: LEVEL critical
+  @Override
+  public void execute(Target target) {
+    target.setMobility(Mobility.MOBILE_DISABLED);
+    this.target = target;
   }
 
-  /**
-   * Cast spell
-   */
-  public void castSpell(Command command, Target target) {
-    LOGGER.info("{} casts {} at {}", this, command, target);
-    command.execute(target);
-    undoStack.offerLast(command);
-  }
-
-  /**
-   * Undo last spell
-   */
-  public void undoLastSpell() {
-    if (!undoStack.isEmpty()) {
-      Command previousSpell = undoStack.pollLast();
-      redoStack.offerLast(previousSpell);
-      LOGGER.info("{} undoes {}", this, previousSpell);
-      previousSpell.undo();
+  @Override
+  public void undo() {
+    if (target != null) {
+      target.setMobility(Mobility.MOBILE);
     }
   }
 
-  /**
-   * Redo last spell
-   */
-  public void redoLastSpell() {
-    if (!redoStack.isEmpty()) {
-      Command previousSpell = redoStack.pollLast();
-      undoStack.offerLast(previousSpell);
-      LOGGER.info("{} redoes {}", this, previousSpell);
-      previousSpell.redo();
+  @Override
+  public void redo() {
+    if (target != null) {
+      target.setMobility(Mobility.MOBILE_DISABLED);
     }
   }
 
   @Override
   public String toString() {
-    return "Wizard";
+    return "Responsive Design ";
   }
 }

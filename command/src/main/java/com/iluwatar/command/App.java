@@ -51,27 +51,27 @@ public class App {
    * @param args command line args
    */
   public static void main(String[] args) {
-    Wizard wizard = new Wizard();
-    Goblin goblin = new Goblin();
+    User user = new User();
+    WebPage webPage = new WebPage();
 
-    goblin.printStatus();
+    webPage.printStatus();
 
-    wizard.castSpell(new ShrinkSpell(), goblin);
-    goblin.printStatus();
+    user.action(new SmallDesign(), webPage);
+    webPage.printStatus();
 
-    wizard.castSpell(new InvisibilitySpell(), goblin);
-    goblin.printStatus();
+    user.action(new ResponsiveDesign(), webPage);
+    webPage.printStatus();
 
-    wizard.undoLastSpell();
-    goblin.printStatus();
+    user.undoLastAction();
+    webPage.printStatus();
 
-    wizard.undoLastSpell();
-    goblin.printStatus();
+    user.undoLastAction();
+    webPage.printStatus();
 
-    wizard.redoLastSpell();
-    goblin.printStatus();
+    user.redoLastAction();
+    webPage.printStatus();
 
-    wizard.redoLastSpell();
-    goblin.printStatus();
+    user.redoLastAction();
+    webPage.printStatus();
   }
 }
