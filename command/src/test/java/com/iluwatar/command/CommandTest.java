@@ -55,10 +55,10 @@ public class CommandTest {
     User user = new User();
     WebPage webPage = new WebPage();
 
-    user.action(new SmallDesign(), webPage);
+    user.action(new MakeItSmallDesign(), webPage);
     verifyWebpage(webPage, WEB_PAGE, Size.SMALL, Mobility.MOBILE);
 
-    user.action(new ResponsiveDesign(), webPage);
+    user.action(new DesktopDesign(), webPage);
     verifyWebpage(webPage, WEB_PAGE, Size.SMALL, Mobility.MOBILE_DISABLED);
 
     user.undoLastAction();

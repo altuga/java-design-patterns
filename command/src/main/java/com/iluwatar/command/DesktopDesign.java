@@ -24,10 +24,10 @@ package com.iluwatar.command;
 
 /**
  * 
- * ResponsiveDesign is a concrete command
+ * DesktopDesign is a concrete command
  *
  */
-public class ResponsiveDesign extends Command {
+public class DesktopDesign extends Command {
 
   private Target target;
 

@@ -56,10 +56,10 @@ public class App {
 
     webPage.printStatus();
 
-    user.action(new SmallDesign(), webPage);
+    user.action(new MakeItSmallDesign(), webPage);
     webPage.printStatus();
 
-    user.action(new ResponsiveDesign(), webPage);
+    user.action(new DesktopDesign(), webPage);
     webPage.printStatus();
 
     user.undoLastAction();

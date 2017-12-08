@@ -24,10 +24,10 @@ package com.iluwatar.command;
 
 /**
  * 
- * SmallDesign is a concrete command
+ * MakeItSmallDesign is a concrete command
  *
  */
-public class SmallDesign extends Command {
+public class MakeItSmallDesign extends Command {
 
   private Size oldSize;
   private Target target;
