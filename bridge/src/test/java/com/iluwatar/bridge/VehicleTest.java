@@ -22,30 +22,37 @@
  */
 package com.iluwatar.bridge;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static org.junit.Assert.assertNotNull;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 
 /**
- * 
- * FlyingEnchantment
- *
+ * Base class for weapon tests
  */
-public class FlyingEnchantment implements Enchantment {
+public abstract class VehicleTest {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(FlyingEnchantment.class);
+  /**
+   * Invoke the basic actions of the given vehicle, and test if the underlying enchantment implementation
+   * is invoked
+   *
+   */
+  protected final void testBasicVehicleActions(final Vehicle vehicle) {
+    assertNotNull(vehicle);
+    GearBox gearBox = vehicle.getGearBox();
+    assertNotNull(gearBox);
+    assertNotNull(vehicle.getGearBox());
 
-  @Override
-  public void onActivate() {
-    LOGGER.info("The item begins to glow faintly.");
-  }
+    vehicle.drive();
+    verify(gearBox).apply();
+    verifyNoMoreInteractions(gearBox);
 
-  @Override
-  public void apply() {
-    LOGGER.info("The item flies and strikes the enemies finally returning to owner's hand.");
-  }
+    vehicle.startEngine();
+    verify(gearBox).onActivate();
+    verifyNoMoreInteractions(gearBox);
 
-  @Override
-  public void onDeactivate() {
-    LOGGER.info("The item's glow fades.");
+    vehicle.stopEngine();
+    verify(gearBox).onDeactivate();
+    verifyNoMoreInteractions(gearBox);
+
   }
 }

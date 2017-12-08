@@ -22,44 +22,16 @@
  */
 package com.iluwatar.bridge;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
  * 
- * Sword
- *
+ * GearBox
+ * 
  */
-public class Sword implements Weapon {
+public interface GearBox {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(Sword.class);
+  void onActivate();
 
-  private final Enchantment enchantment;
+  void apply();
 
-  public Sword(Enchantment enchantment) {
-    this.enchantment = enchantment;
-  }
-
-  @Override
-  public void wield() {
-    LOGGER.info("The sword is wielded.");
-    enchantment.onActivate();
-  }
-
-  @Override
-  public void swing() {
-    LOGGER.info("The sword is swinged.");
-    enchantment.apply();
-  }
-
-  @Override
-  public void unwield() {
-    LOGGER.info("The sword is unwielded.");
-    enchantment.onDeactivate();
-  }
-
-  @Override
-  public Enchantment getEnchantment() {
-    return enchantment;
-  }
+  void onDeactivate();
 }

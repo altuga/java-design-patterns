@@ -27,39 +27,25 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 
- * Hammer
+ * AutomaticGearBox
  *
  */
-public class Hammer implements Weapon {
+public class AutomaticGearBox implements GearBox {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(Hammer.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(AutomaticGearBox.class);
 
-  private final Enchantment enchantment;
-
-  public Hammer(Enchantment enchantment) {
-    this.enchantment = enchantment;
+  @Override
+  public void onActivate() {
+    LOGGER.info("Automatic Gear mechanism is activated");
   }
 
   @Override
-  public void wield() {
-    LOGGER.info("The hammer is wielded.");
-    enchantment.onActivate();
+  public void apply() {
+    LOGGER.info("The item automatically applied");
   }
 
   @Override
-  public void swing() {
-    LOGGER.info("The hammer is swinged.");
-    enchantment.apply();
-  }
-
-  @Override
-  public void unwield() {
-    LOGGER.info("The hammer is unwielded.");
-    enchantment.onDeactivate();
-  }
-
-  @Override
-  public Enchantment getEnchantment() {
-    return enchantment;
+  public void onDeactivate() {
+    LOGGER.info("Automatic Gear mechanism is Deactivated.");
   }
 }

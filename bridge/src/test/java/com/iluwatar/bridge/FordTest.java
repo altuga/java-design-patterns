@@ -22,18 +22,24 @@
  */
 package com.iluwatar.bridge;
 
+import org.junit.Test;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.verify;
+
 /**
- * 
- * Weapon
- * 
+ * Tests for hammer
  */
-public interface Weapon {
+public class FordTest extends VehicleTest {
 
-  void wield();
-
-  void swing();
-
-  void unwield();
-
-  Enchantment getEnchantment();
+  /**
+   * Invoke all possible actions on the weapon and check if the actions are executed on the actual
+   * underlying weapon implementation.
+   */
+  @Test
+  public void testHammer() throws Exception {
+    final Ford ford = spy(new Ford(mock(AutomaticGearBox.class)));
+    testBasicVehicleActions(ford);
+  }
 }

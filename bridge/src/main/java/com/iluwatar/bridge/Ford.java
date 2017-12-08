@@ -22,38 +22,44 @@
  */
 package com.iluwatar.bridge;
 
-import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.internal.verification.VerificationModeFactory.times;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * Base class for weapon tests
+ * 
+ * Ford
+ *
  */
-public abstract class WeaponTest {
+public class Ford implements Vehicle {
 
-  /**
-   * Invoke the basic actions of the given weapon, and test if the underlying enchantment implementation
-   * is invoked
-   *
-   */
-  protected final void testBasicWeaponActions(final Weapon weapon) {
-    assertNotNull(weapon);
-    Enchantment enchantment = weapon.getEnchantment();
-    assertNotNull(enchantment);
-    assertNotNull(weapon.getEnchantment());
+  private static final Logger LOGGER = LoggerFactory.getLogger(Ford.class);
 
-    weapon.swing();
-    verify(enchantment).apply();
-    verifyNoMoreInteractions(enchantment);
+  private final GearBox gearBox;
 
-    weapon.wield();
-    verify(enchantment).onActivate();
-    verifyNoMoreInteractions(enchantment);
+  public Ford(GearBox gearBox) {
+    this.gearBox = gearBox;
+  }
 
-    weapon.unwield();
-    verify(enchantment).onDeactivate();
-    verifyNoMoreInteractions(enchantment);
+  @Override
+  public void startEngine() {
+    LOGGER.info("Ford is ready to go");
+    gearBox.onActivate();
+  }
 
+  @Override
+  public void drive() {
+    LOGGER.info("Ford is great ...");
+    gearBox.apply();
+  }
+
+  @Override
+  public void stopEngine() {
+    LOGGER.info("Ford is unwielded.");
+    gearBox.onDeactivate();
+  }
+
+  @Override
+  public GearBox getGearBox() {
+    return gearBox;
   }
 }

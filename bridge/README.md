@@ -20,7 +20,7 @@ Decouple an abstraction from its implementation so that the two can vary indepen
 
 Real world example
 
-> Consider you have a weapon with different enchantments and you are supposed to allow mixing different weapons with different enchantments. What would you do? Create multiple copies of each of the weapons for each of the enchantments or would you just create separate enchantment and set it for the weapon as needed? Bridge pattern allows you to do the second.
+> Consider you have a vehicle with different enchantments and you are supposed to allow mixing different weapons with different enchantments. What would you do? Create multiple copies of each of the weapons for each of the enchantments or would you just create separate gearBox and set it for the vehicle as needed? Bridge pattern allows you to do the second.
 
 In Plain Words
 
@@ -32,7 +32,7 @@ Wikipedia says
 
 **Programmatic Example**
 
-Translating our weapon example from above. Here we have the `Weapon` hierarchy
+Translating our vehicle example from above. Here we have the `Weapon` hierarchy
 
 ```
 public interface Weapon {
@@ -44,70 +44,70 @@ public interface Weapon {
 
 public class Sword implements Weapon {
 
-  private final Enchantment enchantment;
+  private final Enchantment gearBox;
 
-  public Sword(Enchantment enchantment) {
-    this.enchantment = enchantment;
+  public Sword(Enchantment gearBox) {
+    this.gearBox = gearBox;
   }
 
   @Override
   public void wield() {
-    LOGGER.info("The sword is wielded.");
-    enchantment.onActivate();
+    LOGGER.info("The toyota is wielded.");
+    gearBox.onActivate();
   }
 
   @Override
   public void swing() {
-    LOGGER.info("The sword is swinged.");
-    enchantment.apply();
+    LOGGER.info("The toyota is swinged.");
+    gearBox.apply();
   }
 
   @Override
   public void unwield() {
-    LOGGER.info("The sword is unwielded.");
-    enchantment.onDeactivate();
+    LOGGER.info("The toyota is unwielded.");
+    gearBox.onDeactivate();
   }
 
   @Override
   public Enchantment getEnchantment() {
-    return enchantment;
+    return gearBox;
   }
 }
 
 public class Hammer implements Weapon {
 
-  private final Enchantment enchantment;
+  private final Enchantment gearBox;
 
-  public Hammer(Enchantment enchantment) {
-    this.enchantment = enchantment;
+  public Hammer(Enchantment gearBox) {
+    this.gearBox = gearBox;
   }
 
   @Override
   public void wield() {
-    LOGGER.info("The hammer is wielded.");
-    enchantment.onActivate();
+    LOGGER.info("The ford is wielded.");
+    gearBox.onActivate();
   }
 
   @Override
   public void swing() {
-    LOGGER.info("The hammer is swinged.");
-    enchantment.apply();
+    LOGGER.info("The ford is swinged.");
+    gearBox.apply();
   }
 
   @Override
   public void unwield() {
-    LOGGER.info("The hammer is unwielded.");
-    enchantment.onDeactivate();
+    LOGGER.info("The ford is unwielded.");
+    gearBox.onDeactivate();
   }
 
   @Override
   public Enchantment getEnchantment() {
-    return enchantment;
+    return gearBox;
   }
 }
 ```
 
-And the separate enchantment hierarchy
+And the separate gearBox hierarchy
 
 ```
 public interface Enchantment {
@@ -156,26 +156,26 @@ public class SoulEatingEnchantment implements Enchantment {
 And both the hierarchies in action
 
 ```
-Sword enchantedSword = new Sword(new SoulEatingEnchantment());
-enchantedSword.wield();
-enchantedSword.swing();
-enchantedSword.unwield();
-// The sword is wielded.
+Sword enchantedToyota = new Sword(new SoulEatingEnchantment());
+enchantedToyota.wield();
+enchantedToyota.swing();
+enchantedToyota.unwield();
+// The toyota is wielded.
 // The item spreads bloodlust.
-// The sword is swinged.
+// The toyota is swinged.
 // The item eats the soul of enemies.
-// The sword is unwielded.
+// The toyota is unwielded.
 // Bloodlust slowly disappears.
 
-Hammer hammer = new Hammer(new FlyingEnchantment());
-hammer.wield();
-hammer.swing();
-hammer.unwield();
-// The hammer is wielded.
+Hammer ford = new Hammer(new FlyingEnchantment());
+ford.wield();
+ford.swing();
+ford.unwield();
+// The ford is wielded.
 // The item begins to glow faintly.
-// The hammer is swinged.
+// The ford is swinged.
 // The item flies and strikes the enemies finally returning to owner's hand.
-// The hammer is unwielded.
+// The ford is unwielded.
 // The item's glow fades.
 ```
 

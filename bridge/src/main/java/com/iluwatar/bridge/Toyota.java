@@ -27,25 +27,39 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 
- * SoulEatingEnchantment
+ * Toyota
  *
  */
-public class SoulEatingEnchantment implements Enchantment {
+public class Toyota implements Vehicle {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(SoulEatingEnchantment.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(Toyota.class);
 
-  @Override
-  public void onActivate() {
-    LOGGER.info("The item spreads bloodlust.");
+  private final GearBox gearBox;
+
+  public Toyota(GearBox gearBox) {
+    this.gearBox = gearBox;
   }
 
   @Override
-  public void apply() {
-    LOGGER.info("The item eats the soul of enemies.");
+  public void startEngine() {
+    LOGGER.info("Toyota is ready to go");
+    gearBox.onActivate();
   }
 
   @Override
-  public void onDeactivate() {
-    LOGGER.info("Bloodlust slowly disappears.");
+  public void drive() {
+    LOGGER.info("Toyota is great ...");
+    gearBox.apply();
+  }
+
+  @Override
+  public void stopEngine() {
+    LOGGER.info("We arrived , stop Toyota");
+    gearBox.onDeactivate();
+  }
+
+  @Override
+  public GearBox getGearBox() {
+    return gearBox;
   }
 }

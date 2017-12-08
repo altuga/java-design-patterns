@@ -22,24 +22,18 @@
  */
 package com.iluwatar.bridge;
 
-import org.junit.Test;
-
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.verify;
-
 /**
- * Tests for hammer
+ * 
+ * Vehicle
+ * 
  */
-public class HammerTest extends WeaponTest {
+public interface Vehicle {
 
-  /**
-   * Invoke all possible actions on the weapon and check if the actions are executed on the actual
-   * underlying weapon implementation.
-   */
-  @Test
-  public void testHammer() throws Exception {
-    final Hammer hammer = spy(new Hammer(mock(FlyingEnchantment.class)));
-    testBasicWeaponActions(hammer);
-  }
+  void startEngine();
+
+  void drive();
+
+  void stopEngine();
+
+  GearBox getGearBox();
 }

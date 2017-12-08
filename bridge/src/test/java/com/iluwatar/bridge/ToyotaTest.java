@@ -31,7 +31,7 @@ import static org.mockito.Mockito.verify;
 /**
  * Tests for sword
  */
-public class SwordTest extends WeaponTest {
+public class ToyotaTest extends VehicleTest {
 
   /**
    * Invoke all possible actions on the weapon and check if the actions are executed on the actual
@@ -39,7 +39,7 @@ public class SwordTest extends WeaponTest {
    */
   @Test
   public void testSword() throws Exception {
-    final Sword sword = spy(new Sword(mock(FlyingEnchantment.class)));
-    testBasicWeaponActions(sword);
+    final Toyota toyota = spy(new Toyota(mock(AutomaticGearBox.class)));
+    testBasicVehicleActions(toyota);
   }
 }
