@@ -57,10 +57,10 @@ public class User {
    */
   public void undoLastAction() {
     if (!undoStack.isEmpty()) {
-      Command previousSpell = undoStack.pollLast();
-      redoStack.offerLast(previousSpell);
-      LOGGER.info("{} undoes {}", this, previousSpell);
-      previousSpell.undo();
+      Command previousAction = undoStack.pollLast();
+      redoStack.offerLast(previousAction);
+      LOGGER.info("{} undoes {}", this, previousAction);
+      previousAction.undo();
     }
   }
 
@@ -69,10 +69,10 @@ public class User {
    */
   public void redoLastAction() {
     if (!redoStack.isEmpty()) {
-      Command previousSpell = redoStack.pollLast();
-      undoStack.offerLast(previousSpell);
-      LOGGER.info("{} redoes {}", this, previousSpell);
-      previousSpell.redo();
+      Command previousAction = redoStack.pollLast();
+      undoStack.offerLast(previousAction);
+      LOGGER.info("{} redoes {}", this, previousAction);
+      previousAction.redo();
     }
   }
 
