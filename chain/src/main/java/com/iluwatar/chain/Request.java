@@ -25,7 +25,7 @@ package com.iluwatar.chain;
 import java.util.Objects;
 
 /**
- * Request
+ * Request = Email object
  */
 public class Request {
 
