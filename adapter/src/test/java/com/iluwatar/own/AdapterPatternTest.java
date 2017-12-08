@@ -52,28 +52,28 @@ public class AdapterPatternTest {
     beans = new HashMap<>();
 
     MuhasebeciAdapter muhasebeciAdapter = spy(new MuhasebeciAdapter());
-    beans.put(MUHENDIS_BEAN, muhasebeciAdapter);
+    beans.put(MUHASEBECI_BEAN, muhasebeciAdapter);
 
     BilgisayarMuhendisi bilgisayarMuhendisi = new BilgisayarMuhendisi();
-    bilgisayarMuhendisi.setMuhasebeYapabilme((MuhasebeciAdapter) beans.get(MUHENDIS_BEAN));
-    beans.put(MUHASEBECI_BEAN, bilgisayarMuhendisi);
+    bilgisayarMuhendisi.setMuhasebeYapabilme(muhasebeciAdapter);
+
+    beans.put(MUHENDIS_BEAN, bilgisayarMuhendisi);
   }
 
-  /**
-   * This test asserts that when we use the muhasebeIsiYap() method on a bilgisayarMuhasbe bean(client), it is
-   * internally calling vergiHesapla method on the fishing boat object. The Adapter ({@link MuhasebeciAdapter}
-   * ) converts the interface of the target class ( {@link MuhasebeciAdapter}) into a suitable one
-   * expected by the client ({@link BilgisayarMuhendisi} ).
-   */
+
   @Test
   public void testAdapter() {
-    BilgisayarMuhendisi bilgisayarMuhendisi = (BilgisayarMuhendisi) beans.get(MUHASEBECI_BEAN);
+    //given
+    BilgisayarMuhendisi bilgisayarMuhendisi = (BilgisayarMuhendisi) beans.get(MUHENDIS_BEAN);
 
-    // when bilgisayarMuhendisi moves
+
+    // when - bilgisayarMuhendisi muhasebe islerini yapabiliyor
     bilgisayarMuhendisi.muhasebeIsiYap();
 
-    // the bilgisayarMuhendisi internally calls the battleship object to move
-    MuhasebeYapabilme adapter = (MuhasebeYapabilme) beans.get(MUHENDIS_BEAN);
+
+    // then - yaparken MuhasebeciAdapter kullaniliyor
+
+    MuhasebeYapabilme adapter = (MuhasebeYapabilme) beans.get(MUHASEBECI_BEAN);
     verify(adapter).muhasebeIsiYap();
   }
 }

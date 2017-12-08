@@ -20,25 +20,40 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.builder;
+package com.iluwatar.chain;
+
+import org.junit.Test;
+
+import static org.junit.Assert.assertTrue;
 
 /**
- * 
- * Armor enumeration
+ * Date: 12/6/15 - 9:29 PM
  *
+ * @author Jeroen Meulemeester
  */
-public enum Armor {
+public class EmailClientTest {
 
-  CLOTHES("clothes"), LEATHER("leather"), CHAIN_MAIL("chain mail"), PLATE_MAIL("plate mail");
+  /**
+   * All possible requests
+   */
+  private static final Request[] REQUESTS = new Request[]{
+      new Request(RequestType.GMAIL, "check Gmail emails are very important"),
+      new Request(RequestType.YAHOO, "check Yahoo emails also are very important too"),
+      new Request(RequestType.HOTMAIL, "I love Hotmail and those messages are important too, checkout please"),
+  };
 
-  private String title;
+  @Test
+  public void testMakeRequest() throws Exception {
+    final EmailClient emailClient = new EmailClient();
 
-  Armor(String title) {
-    this.title = title;
+    for (final Request request : REQUESTS) {
+      emailClient.makeRequest(request);
+      assertTrue(
+          "Hello from my inbox",
+          request.isHandled()
+      );
+    }
+
   }
 
-  @Override
-  public String toString() {
-    return title;
-  }
 }

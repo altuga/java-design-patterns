@@ -20,39 +20,50 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.chain;
+package com.iluwatar.builder;
 
+import com.iluwatar.builder.own.NutritionFacts;
 import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
+import java.util.logging.Logger;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
- * Date: 12/6/15 - 9:29 PM
  *
- * @author Jeroen Meulemeester
+ *
+ * @author Altug Altintas
  */
-public class OrcKingTest {
+public class JustTest {
+
+
 
   /**
-   * All possible requests
+   * Test if we get the expected exception when trying to create a NutritionFacts without a servingSize
    */
-  private static final Request[] REQUESTS = new Request[]{
-      new Request(RequestType.DEFEND_CASTLE, "Don't let the barbarians enter my castle!!"),
-      new Request(RequestType.TORTURE_PRISONER, "Don't just stand there, tickle him!"),
-      new Request(RequestType.COLLECT_TAX, "Don't steal, the King hates competition ..."),
-  };
+  @Test(expected = IllegalArgumentException.class)
+  public void testMissingName() throws Exception {
+    NutritionFacts cocaCola = new NutritionFacts.Builder(0 , 8).build();
+  }
 
+  /**
+   * Test if the hero build by the builder has the correct attributes, as requested
+   */
   @Test
-  public void testMakeRequest() throws Exception {
-    final OrcKing king = new OrcKing();
+  public void testBuildHero() throws Exception {
 
-    for (final Request request : REQUESTS) {
-      king.makeRequest(request);
-      assertTrue(
-          "Expected all requests from King to be handled, but [" + request + "] was not!",
-          request.isHandled()
-      );
-    }
+
+    NutritionFacts cocaCola = new NutritionFacts.Builder(240, 8)
+            .calories(100).sodium(35).carbohydrate(27).build();
+
+    assertNotNull(cocaCola);
+    assertEquals(cocaCola.getServingSize(), 240);
+    assertEquals(cocaCola.getServings(), 8);
+    assertEquals(cocaCola.getCalories(), 100);
+    assertEquals(cocaCola.getSodium(), 35);
+    assertEquals(cocaCola.getCarbohydrate(), 27);
+
 
   }
 
