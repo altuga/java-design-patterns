@@ -5,10 +5,8 @@ import java.util.Iterator;
 import java.util.List;
 
 public abstract class Employee {
-
     private String name;
     private double salary;
-
 
     private List<Employee> employeeList = new ArrayList<Employee>();
 
@@ -21,13 +19,8 @@ public abstract class Employee {
 
 
 
-
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
+    public List<Employee> getEmployeeList() {
+        return employeeList;
     }
 
 
@@ -39,11 +32,11 @@ public abstract class Employee {
         this.name = name;
     }
 
-    public List<Employee> getEmployeeList() {
-        return employeeList;
+    public double getSalary() {
+        return salary;
     }
 
-    public void setEmployeeList(List<Employee> employeeList) {
-        this.employeeList = employeeList;
+    public void setSalary(double salary) {
+        this.salary = salary;
     }
 }

@@ -64,10 +64,14 @@ public class EmployeeTest {
         // then
 
         generalManager.print();
+        System.out.println("*************" + generalManager.getTotalSalary() );
 
+
+        generalManager.reset();
 
         System.out.println("*************");
         manager.print();
+        System.out.println("*************" + manager.getTotalSalary() );
 
 
     }

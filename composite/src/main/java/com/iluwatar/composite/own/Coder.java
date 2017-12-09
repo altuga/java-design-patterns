@@ -2,9 +2,11 @@ package com.iluwatar.composite.own;
 
 public class Coder extends Employee {
 
+
+
     public Coder(String name, double salary) {
-        this.setName(name);
-        this.setSalary(salary);
+        this.setName( name );
+        this.setSalary(salary );
 
     }
 
@@ -15,7 +17,6 @@ public class Coder extends Employee {
     public Employee getChild(int i) {
         return null;
     }
-
 
 
     public void print() {
