@@ -10,10 +10,6 @@ public class Manager extends Employee {
     private List<Employee> employeeList = new ArrayList<Employee>();
 
 
-
-    private static HashMap<String, Double> salariesMap = new HashMap<String, Double>();
-
-
     public Manager(String name, double salary) {
 
         this.setName(name);
@@ -25,15 +21,15 @@ public class Manager extends Employee {
 
         double total = 0;
 
-        for (String key : salariesMap.keySet()) {
-            total += salariesMap.get(key);
+        for (String key : getSalariesMap().keySet()) {
+            total += getSalariesMap().get(key);
         }
         return  total;
 
     }
 
     public void reset() {
-        salariesMap.clear();
+        getSalariesMap().clear();
     }
 
 
@@ -57,13 +53,10 @@ public class Manager extends Employee {
 
 
     private void addSalary(String name, Double salary) {
-       Double salaryLocal = salariesMap.get(name);
+       Double salaryLocal = getSalariesMap().get(name);
        if (salaryLocal == null) {
-           salariesMap.put(name, salary);
-       } /*else {
-           Double newSalaryTotal =  salaryLocal+salary;
-           salariesMap.put(this.name, newSalaryTotal);
-       }*/
+           getSalariesMap().put(name, salary);
+       }
     }
 
 

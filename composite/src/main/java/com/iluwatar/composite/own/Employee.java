@@ -1,6 +1,7 @@
 package com.iluwatar.composite.own;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -9,6 +10,16 @@ public abstract class Employee {
     private double salary;
 
     private List<Employee> employeeList = new ArrayList<Employee>();
+
+    private static HashMap<String, Double> salariesMap = new HashMap<String, Double>();
+
+    public static HashMap<String, Double> getSalariesMap() {
+        return salariesMap;
+    }
+
+    public static void setSalariesMap(HashMap<String, Double> salariesMap) {
+        Employee.salariesMap = salariesMap;
+    }
 
     public abstract void add(Employee employee);
 
