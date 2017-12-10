@@ -22,14 +22,50 @@
  */
 package com.iluwatar.iterator;
 
+import com.iluwatar.iterator.own.ChannelIterator;
+import com.iluwatar.iterator.own.ConcreteTV;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
+
 /**
- * 
- * ItemIterator interface.
- * 
+ * Date: 12/14/17 - 2:58 PM
+ *
+ * @author Altug Altintas
  */
-public interface ItemIterator {
 
-  boolean hasNext();
+public class TvTest {
 
-  Item next();
+
+  /**
+   * Test if the expected item can be retrieved from the channels.
+   */
+  @Test
+  public void testIterator() {
+    List<String> channells = new ArrayList<String>();
+    channells.add("A kanali");
+    channells.add("B kanali");
+    channells.add("C kanali");
+
+    ConcreteTV concreteTV = new ConcreteTV(channells);
+    assertNotNull(concreteTV);
+
+    ChannelIterator it = concreteTV.getIterator();
+    while(it.hasNext()){
+      assertNotNull(it.currentItem());
+
+      it.next();
+    }
+
+  }
+
+
+
 }
