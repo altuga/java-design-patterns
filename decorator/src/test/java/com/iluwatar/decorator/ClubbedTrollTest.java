@@ -22,6 +22,9 @@
  */
 package com.iluwatar.decorator;
 
+import com.iluwatar.decorator.starbuckz.Beverage;
+import com.iluwatar.decorator.starbuckz.Espresso;
+import com.iluwatar.decorator.starbuckz.Mocha;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -29,26 +32,22 @@ import static org.mockito.Mockito.*;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
 
 /**
- * Tests for {@link ClubbedTroll}
+ * Tests for {@link }
  */
 public class ClubbedTrollTest {
 
   @Test
   public void testClubbedTroll() throws Exception {
-    // Create a normal troll first, but make sure we can spy on it later on.
-    final Troll simpleTroll = spy(new SimpleTroll());
+    // Create a Espresso
+    final Beverage beverage = spy(new Espresso());
 
-    // Now we want to decorate the troll to make it stronger ...
-    final Troll clubbed = new ClubbedTroll(simpleTroll);
-    assertEquals(20, clubbed.getAttackPower());
-    verify(simpleTroll, times(1)).getAttackPower();
+    // Now we want to decorate Espresso
+    final Beverage clubbed =  new Mocha(beverage);
+    assertEquals(2.19, clubbed.cost(),0);
+    assertEquals("Espresso, Mocha" , clubbed.getDescription());
 
-    // Check if the clubbed troll actions are delegated to the decorated troll
-    clubbed.attack();
-    verify(simpleTroll, times(1)).attack();
+    verify(beverage, times(1)).getDescription();
 
-    clubbed.fleeBattle();
-    verify(simpleTroll, times(1)).fleeBattle();
-    verifyNoMoreInteractions(simpleTroll);
+
   }
 }

@@ -13,6 +13,8 @@ tags:
 ## Also known as
 Wrapper
 
+## Kahveci 
+
 ## Intent
 Attach additional responsibilities to an object dynamically.
 Decorators provide a flexible alternative to subclassing for extending
@@ -22,7 +24,7 @@ functionality.
 
 Real world example
 
-> There is an angry troll living in the nearby hills. Usually it goes bare handed but sometimes it has a weapon. To arm the troll it's not necessary to create a new troll but to decorate it dynamically with a suitable weapon.
+> There is an angry troll living in the nearby hills. Usually it goes bare handed but sometimes it has a vehicle. To arm the troll it's not necessary to create a new troll but to decorate it dynamically with a suitable vehicle.
 
 In plain words
 
@@ -32,82 +34,6 @@ Wikipedia says
 
 > In object-oriented programming, the decorator pattern is a design pattern that allows behavior to be added to an individual object, either statically or dynamically, without affecting the behavior of other objects from the same class. The decorator pattern is often useful for adhering to the Single Responsibility Principle, as it allows functionality to be divided between classes with unique areas of concern.
 
-**Programmatic Example**
-
-Let's take the troll example. First of all we have a simple troll implementing the troll interface
-
-```
-public interface Troll {
-  void attack();
-  int getAttackPower();
-  void fleeBattle();
-}
-
-public class SimpleTroll implements Troll {
-
-  private static final Logger LOGGER = LoggerFactory.getLogger(SimpleTroll.class);
-
-  @Override
-  public void attack() {
-    LOGGER.info("The troll tries to grab you!");
-  }
-
-  @Override
-  public int getAttackPower() {
-    return 10;
-  }
-
-  @Override
-  public void fleeBattle() {
-    LOGGER.info("The troll shrieks in horror and runs away!");
-  }
-}
-```
-
-Next we want to add club for the troll. We can do it dynamically by using a decorator
-
-```
-public class ClubbedTroll implements Troll {
-
-  private static final Logger LOGGER = LoggerFactory.getLogger(ClubbedTroll.class);
-
-  private Troll decorated;
-
-  public ClubbedTroll(Troll decorated) {
-    this.decorated = decorated;
-  }
-
-  @Override
-  public void attack() {
-    decorated.attack();
-    LOGGER.info("The troll swings at you with a club!");
-  }
-
-  @Override
-  public int getAttackPower() {
-    return decorated.getAttackPower() + 10;
-  }
-
-  @Override
-  public void fleeBattle() {
-    decorated.fleeBattle();
-  }
-}
-```
-
-Here's the troll in action
-
-```
-// simple troll
-Troll troll = new SimpleTroll();
-troll.attack(); // The troll tries to grab you!
-troll.fleeBattle(); // The troll shrieks in horror and runs away!
-
-// change the behavior of the simple troll by adding a decorator
-troll = new ClubbedTroll(troll);
-troll.attack(); // The troll tries to grab you! The troll swings at you with a club!
-troll.fleeBattle(); // The troll shrieks in horror and runs away!
-```
 
 ## Applicability
 Use Decorator
