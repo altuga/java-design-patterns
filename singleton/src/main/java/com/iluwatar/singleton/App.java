@@ -78,13 +78,7 @@ public class App {
     LOGGER.info("ivoryTower1={}", ivoryTower1);
     LOGGER.info("ivoryTower2={}", ivoryTower2);
 
-    // lazily initialized singleton
-    ThreadSafeLazyLoadedIvoryTower threadSafeIvoryTower1 =
-        ThreadSafeLazyLoadedIvoryTower.getInstance();
-    ThreadSafeLazyLoadedIvoryTower threadSafeIvoryTower2 =
-        ThreadSafeLazyLoadedIvoryTower.getInstance();
-    LOGGER.info("threadSafeIvoryTower1={}", threadSafeIvoryTower1);
-    LOGGER.info("threadSafeIvoryTower2={}", threadSafeIvoryTower2);
+
 
     // enum singleton
     EnumIvoryTower enumIvoryTower1 = EnumIvoryTower.INSTANCE;
@@ -98,12 +92,6 @@ public class App {
     ThreadSafeDoubleCheckLocking dcl2 = ThreadSafeDoubleCheckLocking.getInstance();
     LOGGER.info(dcl2.toString());
 
-    // initialize on demand holder idiom
-    InitializingOnDemandHolderIdiom demandHolderIdiom =
-        InitializingOnDemandHolderIdiom.getInstance();
-    LOGGER.info(demandHolderIdiom.toString());
-    InitializingOnDemandHolderIdiom demandHolderIdiom2 =
-        InitializingOnDemandHolderIdiom.getInstance();
-    LOGGER.info(demandHolderIdiom2.toString());
+
   }
 }

@@ -32,8 +32,9 @@ public class EnumIvoryTowerTest extends SingletonTest<EnumIvoryTower> {
   /**
    * Create a new singleton test instance using the given 'getInstance' method
    */
-  public EnumIvoryTowerTest() {
+  public EnumIvoryTowerTest() throws Exception {
     super(() -> EnumIvoryTower.INSTANCE);
+    testMultipleCallsReturnTheSameObjectInDifferentThreads();
   }
 
 }
