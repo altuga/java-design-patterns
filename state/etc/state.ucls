@@ -5,7 +5,7 @@
     file="/state/src/main/java/com/iluwatar/state/AngryState.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="124" width="157" x="98" y="310"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
+      sort-features="false" accessors="true" mobility="true">
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
@@ -14,7 +14,7 @@
     file="/state/src/main/java/com/iluwatar/state/PeacefulState.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="124" width="173" x="295" y="310"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
+      sort-features="false" accessors="true" mobility="true">
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
@@ -23,7 +23,7 @@
     file="/state/src/main/java/com/iluwatar/state/State.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="106" width="136" x="138" y="674"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
+      sort-features="false" accessors="true" mobility="true">
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
@@ -32,7 +32,7 @@
     file="/state/src/main/java/com/iluwatar/state/Mammoth.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="160" width="177" x="138" y="474"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
+      sort-features="false" accessors="true" mobility="true">
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
@@ -72,7 +72,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-    sort-features="false" accessors="true" visibility="true">    
+    sort-features="false" accessors="true" mobility="true">
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
     <operations public="true" package="true" protected="true" private="true" static="true"/>  
   </classifier-display>  
