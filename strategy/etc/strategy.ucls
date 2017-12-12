@@ -5,7 +5,7 @@
     file="/strategy/src/main/java/com/iluwatar/strategy/DragonSlayingStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="88" width="186" x="525" y="428"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
+      sort-features="false" accessors="true" mobility="true">
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
@@ -14,7 +14,7 @@
     file="/strategy/src/main/java/com/iluwatar/strategy/ProjectileStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="106" width="151" x="218" y="264"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
+      sort-features="false" accessors="true" mobility="true">
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
@@ -23,7 +23,7 @@
     file="/strategy/src/main/java/com/iluwatar/strategy/SpellStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="106" width="125" x="409" y="264"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
+      sort-features="false" accessors="true" mobility="true">
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
@@ -32,7 +32,7 @@
     file="/strategy/src/main/java/com/iluwatar/strategy/DragonSlayer.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="124" width="284" x="574" y="264"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
+      sort-features="false" accessors="true" mobility="true">
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
@@ -41,7 +41,7 @@
     file="/strategy/src/main/java/com/iluwatar/strategy/MeleeStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="106" width="127" x="898" y="264"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
+      sort-features="false" accessors="true" mobility="true">
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
@@ -67,7 +67,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-    sort-features="false" accessors="true" visibility="true">    
+    sort-features="false" accessors="true" mobility="true">
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
     <operations public="true" package="true" protected="true" private="true" static="true"/>  
   </classifier-display>  
