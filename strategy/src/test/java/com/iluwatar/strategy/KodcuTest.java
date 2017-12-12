@@ -22,18 +22,43 @@
  */
 package com.iluwatar.strategy;
 
+import com.iluwatar.strategy.own.ITUzmani;
+import com.iluwatar.strategy.own.ITUzmaniAyse;
+import com.iluwatar.strategy.own.KodYazabilme;
+import com.iluwatar.strategy.own.KodcuSenior;
 import org.junit.Test;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
+
 /**
- * 
- * Application test
+ * Date: 12/29/17 - 10:50 PM
  *
+ * @author Altug Bilgin Altintas
  */
-public class AppTest {
+public class KodcuTest {
+
+  /**
+   * Verify if the kodcu uses the strategy during coding
+   */
+  @Test
+  public void testKodYazabilme() {
+    final KodYazabilme strategy = mock(KodcuSenior.class);
+    final ITUzmani itUzmani = new ITUzmaniAyse();
+    itUzmani.setKodYazabilme(strategy);
+
+    itUzmani.kodlayabilirMisin();
+    verify(strategy).kodla();
+    verifyNoMoreInteractions(strategy);
+  }
 
   @Test
-  public void test() {
-    String[] args = {};
-    App.main(args);
+  public void testTestEdebilme() {
+   //...
+
   }
+
+
+
 }
