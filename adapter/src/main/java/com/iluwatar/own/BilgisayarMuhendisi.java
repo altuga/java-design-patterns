@@ -22,19 +22,23 @@
  */
 package com.iluwatar.own;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * The BilgisayarMuhendisi uses {@link MuhasebeYapabilme}  <br>
  * This is the client in the pattern.
  */
 public class BilgisayarMuhendisi implements MuhasebeYapabilme {
 
+  private static final Logger LOGGER = LoggerFactory.getLogger(BilgisayarMuhendisi.class);
+
   private MuhasebeYapabilme muhasebeYapabilme;
 
-  public BilgisayarMuhendisi() {}
-
-  public BilgisayarMuhendisi(MuhasebeYapabilme muhasebeYapabilme) {
-    this.muhasebeYapabilme = muhasebeYapabilme;
+  public BilgisayarMuhendisi() {
+    LOGGER.info("Muhasebe islemlerinden nefret ederim");
   }
+
 
   public void setMuhasebeYapabilme(MuhasebeYapabilme muhasebeYapabilme) {
     this.muhasebeYapabilme = muhasebeYapabilme;

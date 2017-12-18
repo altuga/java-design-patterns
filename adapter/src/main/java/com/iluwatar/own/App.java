@@ -54,7 +54,8 @@ public class App {
    */
   public static void main(String[] args) {
     // Bilgisayar Muhendisi adapter sayesinde artık muhasebe islemleri yapabiliyor.
-    BilgisayarMuhendisi bilgisayarMuhendisi = new BilgisayarMuhendisi(new MuhasebeciAdapter());
+    BilgisayarMuhendisi bilgisayarMuhendisi = new BilgisayarMuhendisi();
+    bilgisayarMuhendisi.setMuhasebeYapabilme(new MuhasebeciAdapter());
     bilgisayarMuhendisi.muhasebeIsiYap();
   }
 }

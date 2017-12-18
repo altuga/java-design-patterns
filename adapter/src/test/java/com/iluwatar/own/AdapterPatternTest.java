@@ -44,36 +44,26 @@ public class AdapterPatternTest {
 
   private static final String MUHASEBECI_BEAN = "muhasebe";
 
-  /**
-   * This method runs before the test execution and sets the bean objects in the beans Map.
-   */
-  @Before
-  public void setup() {
-    beans = new HashMap<>();
-
-    MuhasebeciAdapter muhasebeciAdapter = spy(new MuhasebeciAdapter());
-    beans.put(MUHASEBECI_BEAN, muhasebeciAdapter);
-
-    BilgisayarMuhendisi bilgisayarMuhendisi = new BilgisayarMuhendisi();
-    bilgisayarMuhendisi.setMuhasebeYapabilme(muhasebeciAdapter);
-
-    beans.put(MUHENDIS_BEAN, bilgisayarMuhendisi);
-  }
 
 
   @Test
   public void testAdapter() {
     //given
-    BilgisayarMuhendisi bilgisayarMuhendisi = (BilgisayarMuhendisi) beans.get(MUHENDIS_BEAN);
+    MuhasebeciAdapter muhasebeciAdapter = spy(new MuhasebeciAdapter()); // neden spy kullanildi.
+
+    BilgisayarMuhendisi bilgisayarMuhendisi = new BilgisayarMuhendisi();
+
 
 
     // when - bilgisayarMuhendisi muhasebe islerini yapabiliyor
+
+    bilgisayarMuhendisi.setMuhasebeYapabilme(muhasebeciAdapter);
     bilgisayarMuhendisi.muhasebeIsiYap();
 
 
-    // then - yaparken MuhasebeciAdapter kullaniliyor
+    // then
 
-    MuhasebeYapabilme adapter = (MuhasebeYapabilme) beans.get(MUHASEBECI_BEAN);
-    verify(adapter).muhasebeIsiYap();
+    // Arka planda muhasebeciAdapterinin muhasebeIsiYap() yordamı 1 kere cagirliyor mu ?
+    verify(muhasebeciAdapter).muhasebeIsiYap();
   }
 }
