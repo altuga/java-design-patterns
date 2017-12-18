@@ -34,69 +34,7 @@ Wikipedia says
 
 > In software engineering, the adapter pattern is a software design pattern that allows the interface of an existing class to be used as another interface. It is often used to make existing classes work with others without modifying their source code.
 
-**Programmatic Example**
 
-Consider a captain that can only use rowing boats and cannot sail at all.
-
-First we have interfaces `RowingBoat` and `FishingBoat`
-
-```
-public interface RowingBoat {
-  void row();
-}
-
-public class FishingBoat {
-  private static final Logger LOGGER = LoggerFactory.getLogger(FishingBoat.class);
-  public void sail() {
-    LOGGER.info("The fishing boat is sailing");
-  }
-}
-```
-
-And captain expects an implementation of `RowingBoat` interface to be able to move
-
-```
-public class Captain implements RowingBoat {
-
-  private RowingBoat rowingBoat;
-
-  public Captain(RowingBoat rowingBoat) {
-    this.rowingBoat = rowingBoat;
-  }
-
-  @Override
-  public void row() {
-    rowingBoat.row();
-  }
-}
-```
-
-Now let's say the pirates are coming and our captain needs to escape but there is only fishing boat available. We need to create an adapter that allows the captain to operate the fishing boat with his rowing boat skills.
-
-```
-public class FishingBoatAdapter implements RowingBoat {
-
-  private static final Logger LOGGER = LoggerFactory.getLogger(FishingBoatAdapter.class);
-
-  private FishingBoat boat;
-
-  public FishingBoatAdapter() {
-    boat = new FishingBoat();
-  }
-
-  @Override
-  public void row() {
-    boat.sail();
-  }
-}
-```
-
-And now the `Captain` can use the `FishingBoat` to escape the pirates.
-
-```
-Captain captain = new Captain(new FishingBoatAdapter());
-captain.row();
-```
 
 ## Applicability
 Use the Adapter pattern when
