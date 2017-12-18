@@ -22,37 +22,51 @@
  */
 package com.iluwatar.chain;
 
+import com.iluwatar.chain.helper.InMemoryAppender;
+import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Date: 12/6/15 - 9:29 PM
+ * Date: 12/6/17 - 13:29 PM
  *
- * @author Jeroen Meulemeester
+ * @author Altug Bilgin Altintas
  */
 public class EmailClientTest {
 
-  /**
-   * All possible requests
-   */
-  private static final Request[] REQUESTS = new Request[]{
-      new Request(RequestType.GMAIL, "check Gmail emails are very important"),
-      new Request(RequestType.YAHOO, "check Yahoo emails also are very important too"),
-      new Request(RequestType.HOTMAIL, "I love Hotmail and those messages are important too, checkout please"),
-  };
+  InMemoryAppender appender;
+
+  @Before
+  public void setUp() {
+    appender = new InMemoryAppender();
+  }
 
   @Test
   public void testMakeRequest() throws Exception {
-    final EmailClient emailClient = new EmailClient();
 
-    for (final Request request : REQUESTS) {
-      emailClient.makeRequest(request);
-      assertTrue(
-          "Hello from my inbox",
-          request.isHandled()
-      );
-    }
+
+    // given
+    EmailClient emailClient = new EmailClient();
+
+    // when
+    emailClient.makeRequest(new Request(RequestType.GMAIL, "Gmail"));
+    emailClient.makeRequest(new Request(RequestType.YAHOO, "Yahoo"));
+    emailClient.makeRequest(new Request(RequestType.HOTMAIL, "Hotmail"));
+    emailClient.makeRequest(new Request(RequestType.YANDEX, "Yandex")); // no handler
+
+    // then
+    assertTrue(appender.logContains("Gmail Handler handling request \"Gmail\""));
+    assertTrue(appender.logContains("Yahoo Handler handling request \"Yahoo\""));
+    assertTrue(appender.logContains("Hotmail Handler handling request \"Hotmail\""));
+    assertTrue(appender.logContains("Yandex cannot be handled \"{}\""));
+
+
+
+
+
 
   }
 
