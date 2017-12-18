@@ -22,26 +22,29 @@
  */
 package com.iluwatar.bridge;
 
+import org.junit.Test;
+
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.*;
 
-/**
- * Base class for weapon tests
- */
-public abstract class VehicleTest {
 
-  /**
-   * Invoke the basic actions of the given vehicle, and test if the underlying enchantment implementation
-   * is invoked
-   *
-   */
-  protected final void testBasicVehicleActions(final Vehicle vehicle) {
+public class VehicleTest {
+
+
+  @Test
+  public void testFordActions() {
+
+    // given
+    final Ford vehicle = spy(new Ford(mock(AutomaticGearBox.class)));
     assertNotNull(vehicle);
+
+
+    // when
     GearBox gearBox = vehicle.getGearBox();
     assertNotNull(gearBox);
     assertNotNull(vehicle.getGearBox());
 
+    //then
     vehicle.drive();
     verify(gearBox).apply();
     verifyNoMoreInteractions(gearBox);
@@ -54,5 +57,10 @@ public abstract class VehicleTest {
     verify(gearBox).onDeactivate();
     verifyNoMoreInteractions(gearBox);
 
+  }
+
+  @Test
+  public void testToyotaActions() {
+    // TODO
   }
 }
