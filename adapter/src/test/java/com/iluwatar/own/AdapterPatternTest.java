@@ -38,19 +38,14 @@ import static org.mockito.Mockito.verify;
  */
 public class AdapterPatternTest {
 
-  private Map<String, Object> beans;
-
-  private static final String MUHENDIS_BEAN = "muhendis";
-
-  private static final String MUHASEBECI_BEAN = "muhasebe";
 
 
 
   @Test
   public void testAdapter() {
     //given
-    MuhasebeciAdapter muhasebeciAdapter = spy(new MuhasebeciAdapter()); // neden spy kullanildi.
 
+    MuhasebeciAdapter muhasebeciAdapter = spy(new MuhasebeciAdapter()); // neden spy kullanildi??
     BilgisayarMuhendisi bilgisayarMuhendisi = new BilgisayarMuhendisi();
 
 
@@ -63,7 +58,7 @@ public class AdapterPatternTest {
 
     // then
 
-    // Arka planda muhasebeciAdapterinin muhasebeIsiYap() yordamı 1 kere cagirliyor mu ?
+    // Arka planda muhasebeciAdapterinin muhasebeIsiYap() yordamı 1 kere cagirliyor mu, spy takip eder ?
     verify(muhasebeciAdapter).muhasebeIsiYap();
   }
 }
