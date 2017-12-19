@@ -1,11 +1,16 @@
 package com.iluwatar.composite.own;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
 public class Manager extends Employee {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Manager.class);
 
     private List<Employee> employeeList = new ArrayList<Employee>();
 
@@ -35,10 +40,10 @@ public class Manager extends Employee {
 
 
     public void print() {
-        System.out.println("-------------");
-        System.out.println("Name ="+getName());
-        System.out.println("Salary ="+getSalary());
-        System.out.println("-------------");
+        LOGGER.info("-------------");
+        LOGGER.info("Name ="+getName());
+        LOGGER.info("Salary ="+getSalary());
+        LOGGER.info("-------------");
 
         addSalary(getName(), getSalary());
 

@@ -1,8 +1,11 @@
 package com.iluwatar.composite.own;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Coder extends Employee {
 
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(Coder.class);
 
     public Coder(String name, double salary) {
         this.setName( name );
@@ -20,10 +23,10 @@ public class Coder extends Employee {
 
 
     public void print() {
-        System.out.println("-------------");
-        System.out.println("Name ="+getName());
-        System.out.println("Salary ="+getSalary());
-        System.out.println("-------------");
+        LOGGER.info("-------------");
+        LOGGER.info("Name ="+getName());
+        LOGGER.info("Salary ="+getSalary());
+        LOGGER.info("-------------");
     }
 
 

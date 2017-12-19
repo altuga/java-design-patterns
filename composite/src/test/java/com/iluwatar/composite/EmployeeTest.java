@@ -25,8 +25,11 @@ package com.iluwatar.composite;
 import com.iluwatar.composite.own.Coder;
 import com.iluwatar.composite.own.Manager;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Date: 12/11/15 - 8:12 PM
@@ -34,6 +37,7 @@ import static org.junit.Assert.assertEquals;
  * @author Altug Bilgin Altintas
  */
 public class EmployeeTest {
+
 
 
     /**
@@ -63,15 +67,16 @@ public class EmployeeTest {
 
         // then
 
-        generalManager.print();
-        System.out.println("*************" + generalManager.getTotalSalary() );
+        generalManager.print(); // recursion
+        assertEquals(108000, generalManager.getTotalSalary(), 0  );
+
 
 
         generalManager.reset();
 
-        System.out.println("*************");
+
         manager.print();
-        System.out.println("*************" + manager.getTotalSalary() );
+        assertEquals(58000, manager.getTotalSalary(), 0  );
 
 
     }
