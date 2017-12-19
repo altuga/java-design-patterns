@@ -44,33 +44,58 @@ public class CommandTest {
 
   private static final String WEB_PAGE = "WebPage";
 
-  /**
-   * This test verifies that when the wizard casts spells on the goblin. The wizard keeps track of
-   * the previous spells cast, so it is easy to undo them. In addition, it also verifies that the
-   * wizard keeps track of the spells undone, so they can be redone.
-   */
+
   @Test
   public void testCommand() {
 
+    // given
     User user = new User();
     WebPage webPage = new WebPage();
 
+    // when
     user.action(new MakeItSmallDesign(), webPage);
+
+    // then
     verifyWebpage(webPage, WEB_PAGE, Size.SMALL, Mobility.MOBILE);
 
+    // ...........................................................
+
+    // when
     user.action(new DesktopDesign(), webPage);
+
+    // then
     verifyWebpage(webPage, WEB_PAGE, Size.SMALL, Mobility.MOBILE_DISABLED);
 
+    // ...........................................................
+
+    // when
     user.undoLastAction();
+
+    // then
     verifyWebpage(webPage, WEB_PAGE, Size.SMALL, Mobility.MOBILE);
 
+    // ...........................................................
+
+    // when
     user.undoLastAction();
+
+    // then
     verifyWebpage(webPage, WEB_PAGE, Size.NORMAL, Mobility.MOBILE);
 
+    // ...........................................................
+
+    // when
     user.redoLastAction();
+
+    // then
     verifyWebpage(webPage, WEB_PAGE, Size.SMALL, Mobility.MOBILE);
 
+    // ...........................................................
+
+    // when
     user.redoLastAction();
+
+    // then
     verifyWebpage(webPage, WEB_PAGE, Size.SMALL, Mobility.MOBILE_DISABLED);
   }
 
