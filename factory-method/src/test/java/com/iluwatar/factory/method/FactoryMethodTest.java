@@ -47,8 +47,13 @@ public class FactoryMethodTest {
    */
   @Test
   public void testFordBlacksmithWithHybrid() {
+    // given
     Blacksmith blacksmith = new FordBlacksmith();
+
+    // when
     Vehicle vehicle = blacksmith.manufactureVehicle(VehicleType.HYBRID);
+
+    // then
     verifyVehicle(vehicle, VehicleType.HYBRID, FordVehicle.class);
   }
 
@@ -58,8 +63,13 @@ public class FactoryMethodTest {
    */
   @Test
   public void testFordBlacksmithWithSedan() {
+    // given
     Blacksmith blacksmith = new FordBlacksmith();
+
+    // when
     Vehicle vehicle = blacksmith.manufactureVehicle(VehicleType.SEDAN);
+
+    // then
     verifyVehicle(vehicle, VehicleType.SEDAN, FordVehicle.class);
   }
 
@@ -69,8 +79,13 @@ public class FactoryMethodTest {
    */
   @Test
   public void testToyotaBlacksmithWithTruck() {
+    // given
     Blacksmith blacksmith = new ToyotaBlacksmith();
+
+    // when
     Vehicle vehicle = blacksmith.manufactureVehicle(VehicleType.TRUCK);
+
+    // then
     verifyVehicle(vehicle, VehicleType.TRUCK, ToyotaVehicle.class);
   }
 
@@ -80,8 +95,13 @@ public class FactoryMethodTest {
    */
   @Test
   public void testToyotaBlacksmithWithHybrid() {
+    // given
     Blacksmith blacksmith = new ToyotaBlacksmith();
+
+    // when
     Vehicle vehicle = blacksmith.manufactureVehicle(VehicleType.HYBRID);
+
+    // then
     verifyVehicle(vehicle, VehicleType.HYBRID, ToyotaVehicle.class);
   }
 

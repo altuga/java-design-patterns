@@ -21,7 +21,7 @@ instantiation to subclasses.
 ## Explanation
 Real world example
 
-> Blacksmith manufactures weapons. Elves require Elvish weapons and orcs require Orcish weapons. Depending on the customer at hand the right type of blacksmith is summoned.
+> Blacksmith manufactures cars. Toyota cars requires Toyota factory and Ford cars requires Ford factory. Depending on the customer at hand the right type of blacksmith is summoned.
 
 In plain words
 
@@ -31,36 +31,7 @@ Wikipedia says
 
 > In class-based programming, the factory method pattern is a creational pattern that uses factory methods to deal with the problem of creating objects without having to specify the exact class of the object that will be created. This is done by creating objects by calling a factory method—either specified in an interface and implemented by child classes, or implemented in a base class and optionally overridden by derived classes—rather than by calling a constructor.
 
- **Programmatic Example**
-
-Taking our blacksmith example above. First of all we have a blacksmith interface and some implementations for it
-
-```
-public interface Blacksmith {
-  Weapon manufactureWeapon(WeaponType vehicleType);
-}
-
-public class ElfBlacksmith implements Blacksmith {
-  public Weapon manufactureWeapon(WeaponType vehicleType) {
-    return new ElfWeapon(vehicleType);
-  }
-}
-
-public class OrcBlacksmith implements Blacksmith {
-  public Weapon manufactureWeapon(WeaponType vehicleType) {
-    return new OrcWeapon(vehicleType);
-  }
-}
-```
-
-Now as the customers come the correct type of blacksmith is summoned and requested weapons are manufactured
-
-```
-Blacksmith blacksmith = new ElfBlacksmith();
-blacksmith.manufactureWeapon(WeaponType.SPEAR);
-blacksmith.manufactureWeapon(WeaponType.AXE);
-// Elvish weapons are created
-```
+ 
 
 ## Applicability
 Use the Factory Method pattern when
