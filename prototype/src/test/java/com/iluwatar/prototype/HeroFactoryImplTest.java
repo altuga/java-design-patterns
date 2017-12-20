@@ -25,10 +25,7 @@ package com.iluwatar.prototype;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNull;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 /**
  * Date: 12/28/15 - 8:34 PM
@@ -39,6 +36,8 @@ public class HeroFactoryImplTest {
 
   @Test
   public void testFactory() throws Exception {
+
+    // given
     final Mage mage = mock(Mage.class);
     final Warlord warlord = mock(Warlord.class);
     final Beast beast = mock(Beast.class);
@@ -47,10 +46,21 @@ public class HeroFactoryImplTest {
     when(warlord.clone()).thenThrow(CloneNotSupportedException.class);
     when(beast.clone()).thenThrow(CloneNotSupportedException.class);
 
+    /*
+       TODO : prove and understand  mock mechanism
+       1 - beast.clone(); // will throw exception
+       2 - comment line 47
+       3 - verify(beast, times(2)).clone();
+     */
+
+    // when
+
     final HeroFactoryImpl factory = new HeroFactoryImpl(mage, warlord, beast);
     assertNull(factory.createMage());
     assertNull(factory.createWarlord());
     assertNull(factory.createBeast());
+
+    // then
 
     verify(mage).clone();
     verify(warlord).clone();
