@@ -1,11 +1,15 @@
 package com.iluwatar.iterator.own;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class Pure {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(Pure.class);
     public static void main(String args[]) {
         List<String> list = new ArrayList<String>();
         list.add("Ankara");
@@ -15,7 +19,7 @@ public class Pure {
         Iterator<String> it = list.iterator();
         while(it.hasNext()){
             String s = it.next();
-            System.out.println(" > " + s );
+            LOGGER.info(" > " + s );
         }
     }
 }

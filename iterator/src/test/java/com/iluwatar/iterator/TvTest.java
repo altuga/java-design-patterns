@@ -24,6 +24,8 @@ package com.iluwatar.iterator;
 
 import com.iluwatar.iterator.own.ChannelIterator;
 import com.iluwatar.iterator.own.ConcreteTV;
+import helper.InMemoryAppender;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -31,9 +33,7 @@ import org.junit.runners.Parameterized;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 /**
  * Date: 12/14/17 - 2:58 PM
@@ -43,12 +43,20 @@ import static org.junit.Assert.fail;
 
 public class TvTest {
 
+  InMemoryAppender appender;
 
+  @Before
+  public void setup() {
+    appender = new InMemoryAppender();
+
+  }
   /**
    * Test if the expected item can be retrieved from the channels.
    */
   @Test
   public void testIterator() {
+
+    // Given
     List<String> channells = new ArrayList<String>();
     channells.add("A kanali");
     channells.add("B kanali");
@@ -57,12 +65,18 @@ public class TvTest {
     ConcreteTV concreteTV = new ConcreteTV(channells);
     assertNotNull(concreteTV);
 
-    ChannelIterator it = concreteTV.getIterator();
-    while(it.hasNext()){
-      assertNotNull(it.currentItem());
-
-      it.next();
+    // When
+    ChannelIterator concreteTVIterator = concreteTV.getIterator();
+    while(concreteTVIterator.hasNext()){
+      assertNotNull(concreteTVIterator.currentItem());
+      concreteTVIterator.next();
     }
+
+
+    // Then
+    assertTrue(appender.logContains("A kanali"));
+    assertTrue(appender.logContains("B kanali"));
+    assertTrue(appender.logContains("C kanali"));
 
   }
 
