@@ -34,18 +34,22 @@ import static org.mockito.internal.verification.VerificationModeFactory.times;
 /**
  * Tests for {@link }
  */
-public class ClubbedTrollTest {
+public class CoffeeTest {
 
   @Test
-  public void testClubbedTroll() throws Exception {
-    // Create a Espresso
+  public void testCoffee() throws Exception {
+
+    // given - Create a Espresso
     final Beverage beverage = spy(new Espresso());
 
-    // Now we want to decorate Espresso
+
+
+    // when - Now we want to decorate Espresso
     final Beverage clubbed =  new Mocha(beverage);
     assertEquals(2.19, clubbed.cost(),0);
     assertEquals("Espresso, Mocha" , clubbed.getDescription());
 
+    // then
     verify(beverage, times(1)).getDescription();
 
 
