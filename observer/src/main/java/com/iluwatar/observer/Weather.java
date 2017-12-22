@@ -56,10 +56,11 @@ public class Weather {
 
   /**
    * Makes time pass for weather
+   * Gives next weather condition systematically
    */
   public void timePasses() {
     WeatherType[] enumValues = WeatherType.values();
-    currentWeather = enumValues[(currentWeather.ordinal() + 1) % enumValues.length];
+    currentWeather = enumValues[(currentWeather.ordinal() + 1) % enumValues.length]; // gives next weather
     LOGGER.info("The weather changed to {}.", currentWeather);
     notifyObservers();
   }

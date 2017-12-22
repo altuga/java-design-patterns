@@ -29,11 +29,7 @@ import org.junit.Test;
 import org.mockito.InOrder;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.inOrder;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.*;
 
 /**
  * Date: 12/27/15 - 11:08 AM
@@ -60,41 +56,32 @@ public class WeatherTest {
    */
   @Test
   public void testAddRemoveObserver() {
+
+    // Given
     final WeatherObserver observer = mock(WeatherObserver.class);
 
     final Weather weather = new Weather();
     weather.addObserver(observer);
-    verifyZeroInteractions(observer);
 
+
+    // When
     weather.timePasses();
+
+    // Then
     assertEquals("The weather changed to rainy.", appender.getLastMessage());
     verify(observer).update(WeatherType.RAINY);
 
+
+    // When
     weather.removeObserver(observer);
     weather.timePasses();
-    assertEquals("The weather changed to windy.", appender.getLastMessage());
 
-    verifyNoMoreInteractions(observer);
+    // Then
+    assertEquals("The weather changed to windy.", appender.getLastMessage());
+    verifyNoMoreInteractions(observer); // make sure no call on Observer object even weather has changed.
     assertEquals(2, appender.getLogSize());
   }
 
-  /**
-   * Verify if the weather passes in the order of the {@link WeatherType}s
-   */
-  @Test
-  public void testTimePasses() {
-    final WeatherObserver observer = mock(WeatherObserver.class);
-    final Weather weather = new Weather();
-    weather.addObserver(observer);
-
-    final InOrder inOrder = inOrder(observer);
-    final WeatherType[] weatherTypes = WeatherType.values();
-    for (int i = 1; i < 20; i++) {
-      weather.timePasses();
-      inOrder.verify(observer).update(weatherTypes[i % weatherTypes.length]);
-    }
-
-    verifyNoMoreInteractions(observer);
-  }
-
 }
+
+
