@@ -61,27 +61,34 @@ public class MammothTest {
    */
   @Test
   public void testTimePasses() {
-    final Mammoth mammoth = new Mammoth();
 
+    // given
+    final Mammoth mammoth = new Mammoth();
     mammoth.observe();
     assertEquals("The mammoth is calm and peaceful.", appender.getLastMessage());
     assertEquals(1 , appender.getLogSize());
 
+    // when
     mammoth.timePasses();
     assertEquals("The mammoth gets angry!", appender.getLastMessage());
     assertEquals(2 , appender.getLogSize());
 
+    // then
     mammoth.observe();
     assertEquals("The mammoth is furious!", appender.getLastMessage());
     assertEquals(3 , appender.getLogSize());
 
+    // when
     mammoth.timePasses();
     assertEquals("The mammoth calms down.", appender.getLastMessage());
     assertEquals(4 , appender.getLogSize());
 
+    // then
     mammoth.observe();
     assertEquals("The mammoth is calm and peaceful.", appender.getLastMessage());
     assertEquals(5 , appender.getLogSize());
+
+    // TODO Add stress state
 
   }
 
