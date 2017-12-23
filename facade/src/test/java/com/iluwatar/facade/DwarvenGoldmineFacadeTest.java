@@ -99,6 +99,8 @@ public class DwarvenGoldmineFacadeTest {
     assertTrue(appender.logContains("Dwarf cart operator goes home."));
     assertTrue(appender.logContains("Dwarven tunnel digger goes home."));
 
+    //TODO add watch tv
+
     // ... and go to sleep. We need well rested workers the next day :)
     assertTrue(appender.logContains("Dwarf gold digger goes to sleep."));
     assertTrue(appender.logContains("Dwarf cart operator goes to sleep."));
@@ -106,6 +108,8 @@ public class DwarvenGoldmineFacadeTest {
 
     // Every worker should be sleeping now, no other actions allowed
     assertEquals(15, appender.getLogSize());
+
+
   }
 
   private class InMemoryAppender extends AppenderBase<ILoggingEvent> {
