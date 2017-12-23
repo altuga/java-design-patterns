@@ -87,6 +87,8 @@ public abstract class SingletonTest<S> {
     final List<Callable<S>> tasks = new ArrayList<>();
     for (int i = 0; i < 10000; i++) {
       tasks.add(this.singletonInstanceMethod::get);
+
+
     }
 
     // Use up to 8 concurrent threads to handle the tasks

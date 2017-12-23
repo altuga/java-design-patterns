@@ -32,8 +32,9 @@ public class ThreadSafeDoubleCheckLockingTest extends SingletonTest<ThreadSafeDo
   /**
    * Create a new singleton test instance using the given 'getInstance' method
    */
-  public ThreadSafeDoubleCheckLockingTest() {
+  public ThreadSafeDoubleCheckLockingTest() throws Exception {
     super(ThreadSafeDoubleCheckLocking::getInstance);
+    testMultipleCallsReturnTheSameObjectInDifferentThreads();
   }
 
 }

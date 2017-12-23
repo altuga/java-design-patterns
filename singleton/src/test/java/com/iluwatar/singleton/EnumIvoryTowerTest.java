@@ -34,7 +34,7 @@ public class EnumIvoryTowerTest extends SingletonTest<EnumIvoryTower> {
    */
   public EnumIvoryTowerTest() throws Exception {
     super(() -> EnumIvoryTower.INSTANCE);
-    testMultipleCallsReturnTheSameObjectInDifferentThreads();
+    testMultipleCallsReturnTheSameObjectInSameThread();
   }
 
 }
