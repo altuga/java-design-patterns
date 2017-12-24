@@ -33,7 +33,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 
 /**
- * Date: 12/29/17 - 10:50 PM
+ * Date: 12/29/16 - 10:50 PM
  *
  * @author Altug Bilgin Altintas
  */
@@ -44,18 +44,23 @@ public class KodcuTest {
    */
   @Test
   public void testKodYazabilme() {
-    final KodYazabilme strategy = mock(KodcuSenior.class);
-    final ITUzmani itUzmani = new ITUzmaniAyse();
-    itUzmani.setKodYazabilme(strategy);
 
-    itUzmani.kodlayabilirMisin();
-    verify(strategy).kodla();
-    verifyNoMoreInteractions(strategy);
+    // given
+    final KodYazabilme kodcuSenior = mock(KodcuSenior.class);
+    final ITUzmani ayse = new ITUzmaniAyse();
+
+    // when
+    ayse.setKodYazabilme(kodcuSenior);
+    ayse.kodlayabilirMisin();
+
+    // then
+    verify(kodcuSenior).kodla();
+
   }
 
   @Test
   public void testTestEdebilme() {
-   //...
+   //... TODO
 
   }
 
