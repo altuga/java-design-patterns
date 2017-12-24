@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.8" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
   realizations="true" associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" language="java" name="com.iluwatar.templatemethod.SubtleMethod" project="template-method" 
+  <class id="1" language="java" name="com.iluwatar.templatemethod.MonolithicMethod" project="template-method"
     file="/template-method/src/main/java/com/iluwatar/templatemethod/SubtleMethod.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="142" width="174" x="-90" y="683"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
+      sort-features="false" accessors="true" mobility="true">
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="com.iluwatar.templatemethod.StealingMethod" project="template-method" 
+  <class id="2" language="java" name="com.iluwatar.templatemethod.EngineeringMethod" project="template-method"
     file="/template-method/src/main/java/com/iluwatar/templatemethod/StealingMethod.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="159" width="177" x="17" y="484"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
+      sort-features="false" accessors="true" mobility="true">
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="com.iluwatar.templatemethod.HalflingThief" project="template-method" 
+  <class id="3" language="java" name="com.iluwatar.templatemethod.Engineer" project="template-method"
     file="/template-method/src/main/java/com/iluwatar/templatemethod/HalflingThief.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="124" width="235" x="17" y="320"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
+      sort-features="false" accessors="true" mobility="true">
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="com.iluwatar.templatemethod.HitAndRunMethod" project="template-method" 
+  <class id="4" language="java" name="com.iluwatar.templatemethod.MicroServicesMethod" project="template-method"
     file="/template-method/src/main/java/com/iluwatar/templatemethod/HitAndRunMethod.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="142" width="174" x="124" y="683"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
+      sort-features="false" accessors="true" mobility="true">
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
@@ -58,7 +58,7 @@
     <end type="TARGET" refId="2"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-    sort-features="false" accessors="true" visibility="true">    
+    sort-features="false" accessors="true" mobility="true">
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
     <operations public="true" package="true" protected="true" private="true" static="true"/>  
   </classifier-display>  

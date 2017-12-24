@@ -27,8 +27,8 @@ package com.iluwatar.templatemethod;
  * Template Method defines a skeleton for an algorithm. The algorithm subclasses provide
  * implementation for the blank parts.
  * <p>
- * In this example {@link HalflingThief} contains {@link StealingMethod} that can be changed. First
- * the thief hits with {@link HitAndRunMethod} and then with {@link SubtleMethod}.
+ * In this example {@link Engineer} contains {@link EngineeringMethod} that can be changed. First
+ * the thief hits with {@link MicroServicesMethod} and then with {@link MonolithicMethod}.
  * 
  */
 public class App {
@@ -39,9 +39,10 @@ public class App {
    * @param args command line args
    */
   public static void main(String[] args) {
-    HalflingThief thief = new HalflingThief(new HitAndRunMethod());
-    thief.steal();
-    thief.changeMethod(new SubtleMethod());
-    thief.steal();
+    Engineer engineer = new Engineer(new MicroServicesMethod());
+    engineer.justDoIt();
+
+    engineer.changeMethod(new MonolithicMethod());
+    engineer.justDoIt();
   }
 }

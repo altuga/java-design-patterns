@@ -27,25 +27,26 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 
- * HitAndRunMethod implementation of {@link StealingMethod}.
- *
+ * Engineering Method defines skeleton for the algorithm.
+ * 
  */
-public class HitAndRunMethod extends StealingMethod {
+public abstract class EngineeringMethod {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(HitAndRunMethod.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(EngineeringMethod.class);
 
-  @Override
-  protected String pickTarget() {
-    return "old goblin woman";
-  }
+  protected abstract String plan();
 
-  @Override
-  protected void confuseTarget(String target) {
-    LOGGER.info("Approach the {} from behind.", target);
-  }
+  protected abstract void check(String plan);
 
-  @Override
-  protected void stealTheItem(String target) {
-    LOGGER.info("Grab the handbag and run away fast!");
+  protected abstract void act(String plan);
+
+  /**
+   * Steal
+   */
+  public void doIt() {
+    String plan = plan();
+    LOGGER.info("Planned job executed :" + plan);
+    check(plan);
+    act(plan);
   }
 }

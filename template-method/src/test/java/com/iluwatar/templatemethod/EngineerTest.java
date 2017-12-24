@@ -31,41 +31,53 @@ import static org.mockito.Mockito.verifyNoMoreInteractions;
 /**
  * Date: 12/29/15 - 18:15 PM
  *
- * @author Jeroen Meulemeester
+ * @author @altugaltintas
  */
-public class HalflingThiefTest {
+public class EngineerTest {
 
   /**
-   * Verify if the thief uses the provided stealing method
+   * Verify if the engineer uses the provided engineering method
    */
   @Test
-  public void testSteal() {
-    final StealingMethod method = mock(StealingMethod.class);
-    final HalflingThief thief = new HalflingThief(method);
+  public void testDoIt() {
 
-    thief.steal();
-    verify(method).steal();
+    // Given
+    final EngineeringMethod method = mock(EngineeringMethod.class);
+    final Engineer engineer = new Engineer(method);
 
+    // When
+    engineer.justDoIt();
+
+    // Then
+    verify(method).doIt();
     verifyNoMoreInteractions(method);
   }
 
   /**
-   * Verify if the thief uses the provided stealing method, and the new method after changing it
+   * Verify if the engineer uses the provided doIT method, and the new method after changing it
    */
   @Test
   public void testChangeMethod() {
-    final StealingMethod initialMethod = mock(StealingMethod.class);
-    final HalflingThief thief = new HalflingThief(initialMethod);
 
-    thief.steal();
-    verify(initialMethod).steal();
+    // Given
+    final EngineeringMethod initialMethod = mock(EngineeringMethod.class);
+    final Engineer engineer = new Engineer(initialMethod);
 
-    final StealingMethod newMethod = mock(StealingMethod.class);
-    thief.changeMethod(newMethod);
+    // When
+    engineer.justDoIt();
 
-    thief.steal();
-    verify(newMethod).steal();
+    // Then
+    verify(initialMethod).doIt();
 
+    // Given
+    final EngineeringMethod newMethod = mock(EngineeringMethod.class);
+
+    // When
+    engineer.changeMethod(newMethod);
+    engineer.justDoIt();
+
+    // Then
+    verify(newMethod).doIt();
     verifyNoMoreInteractions(initialMethod, newMethod);
 
   }

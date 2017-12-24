@@ -24,22 +24,22 @@ package com.iluwatar.templatemethod;
 
 /**
  * 
- * Halfling thief uses {@link StealingMethod} to steal.
+ * Halfling thief uses {@link EngineeringMethod} to doIt.
  * 
  */
-public class HalflingThief {
+public class Engineer {
 
-  private StealingMethod method;
+  private EngineeringMethod method;
 
-  public HalflingThief(StealingMethod method) {
+  public Engineer(EngineeringMethod method) {
     this.method = method;
   }
 
-  public void steal() {
-    method.steal();
+  public void justDoIt() {
+    method.doIt();
   }
 
-  public void changeMethod(StealingMethod method) {
+  public void changeMethod(EngineeringMethod method) {
     this.method = method;
   }
 }

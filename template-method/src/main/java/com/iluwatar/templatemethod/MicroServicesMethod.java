@@ -22,24 +22,30 @@
  */
 package com.iluwatar.templatemethod;
 
-/**
- * Date: 12/30/15 - 18:19 PM
- *
- * @author Jeroen Meulemeester
- */
-public class SubtleMethodTest extends StealingMethodTest<SubtleMethod> {
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-  /**
-   * Create a new test for the {@link SubtleMethod}
-   */
-  public SubtleMethodTest() {
-    super(
-        new SubtleMethod(),
-        "shop keeper",
-        "The target has been chosen as shop keeper.",
-        "Approach the shop keeper with tears running and hug him!",
-        "While in close contact grab the shop keeper's wallet."
-    );
+/**
+ * 
+ * MicroServicesMethod implementation of {@link EngineeringMethod}.
+ *
+ */
+public class MicroServicesMethod extends EngineeringMethod {
+
+  private static final Logger LOGGER = LoggerFactory.getLogger(MicroServicesMethod.class);
+
+  @Override
+  protected String plan() {
+    return "Define all old services";
   }
 
+  @Override
+  protected void check(String plan) {
+    LOGGER.info("Control all microservices are working correctly", plan);
+  }
+
+  @Override
+  protected void act(String plan) {
+    LOGGER.info("New Standard :  make new services as a microservices");
+  }
 }

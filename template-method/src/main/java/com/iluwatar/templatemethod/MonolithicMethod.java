@@ -22,24 +22,30 @@
  */
 package com.iluwatar.templatemethod;
 
-/**
- * Date: 12/30/15 - 18:12 PM
- *
- * @author Jeroen Meulemeester
- */
-public class HitAndRunMethodTest extends StealingMethodTest<HitAndRunMethod> {
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-  /**
-   * Create a new test for the {@link HitAndRunMethod}
-   */
-  public HitAndRunMethodTest() {
-    super(
-        new HitAndRunMethod(),
-        "old goblin woman",
-        "The target has been chosen as old goblin woman.",
-        "Approach the old goblin woman from behind.",
-        "Grab the handbag and run away fast!"
-    );
+/**
+ * 
+ * MonolithicMethod implementation of {@link EngineeringMethod}.
+ *
+ */
+public class MonolithicMethod extends EngineeringMethod {
+
+  private static final Logger LOGGER = LoggerFactory.getLogger(MonolithicMethod.class);
+
+  @Override
+  protected String plan() {
+    return "Define hardware need in order to run this giant Monolithic system";
   }
 
+  @Override
+  protected void check(String plan) {
+    LOGGER.info("Check if Monolithic system do not use %80 of the resources", plan);
+  }
+
+  @Override
+  protected void act(String plan) {
+    LOGGER.info("New Standard : Adapt new services in to Monolithic system", plan);
+  }
 }
