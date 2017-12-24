@@ -49,6 +49,8 @@ public class WizardTowerProxyTest {
 
   @Test
   public void testEnter() throws Exception {
+
+    // Given
     final Wizard[] wizards = new Wizard[]{
         new Wizard("Gandalf"),
         new Wizard("Dumbledore"),
@@ -56,11 +58,13 @@ public class WizardTowerProxyTest {
         new Wizard("Merlin")
     };
 
+    // When
     final WizardTowerProxy proxy = new WizardTowerProxy(new IvoryTower());
     for (Wizard wizard : wizards) {
       proxy.enter(wizard);
     }
 
+    // Then
     assertTrue(appender.logContains("Gandalf enters the tower."));
     assertTrue(appender.logContains("Dumbledore enters the tower."));
     assertTrue(appender.logContains("Oz enters the tower."));

@@ -11,7 +11,7 @@ tags:
 ---
 
 ## Also known as
-Surrogate
+Surrogate (Vekil)
 
 ## Intent
 Provide a surrogate or placeholder for another object to control
@@ -20,7 +20,7 @@ access to it.
 ## Explanation
 Real world example
 
-> Imagine a tower where the local wizards go to study their spells. The ivory tower can only be accessed through a proxy which ensures that only the first three wizards can enter. Here the proxy represents the functionality of the tower and adds access control to it.
+    > Imagine a tower where the local wizards go to study their spells. The ivory tower can only be accessed through a proxy which ensures that only the first three wizards can enter. Here the proxy represents the functionality of the tower and adds access control to it.
 
 In plain words
 
@@ -32,26 +32,26 @@ Wikipedia says
 
 **Programmatic Example**
 
-Taking our wizard tower example from above. Firstly we have the wizard tower interface and the ivory tower class
+Taking our user tower example from above. Firstly we have the user tower interface and the ivory tower class
 
 ```
 public interface WizardTower {
 
-  void enter(Wizard wizard);
+  void enter(Wizard user);
 }
 
 public class IvoryTower implements WizardTower {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(IvoryTower.class);
 
-  public void enter(Wizard wizard) {
-    LOGGER.info("{} enters the tower.", wizard);
+  public void enter(Wizard user) {
+    LOGGER.info("{} enters the tower.", user);
   }
 
 }
 ```
 
-Then a simple wizard class
+Then a simple user class
 
 ```
 public class Wizard {
@@ -69,7 +69,7 @@ public class Wizard {
 }
 ```
 
-Then we have the proxy to add access control to wizard tower
+Then we have the proxy to add access control to user tower
 
 ```
 public class WizardTowerProxy implements WizardTower {
@@ -87,12 +87,12 @@ public class WizardTowerProxy implements WizardTower {
   }
 
   @Override
-  public void enter(Wizard wizard) {
+  public void enter(Wizard user) {
     if (numWizards < NUM_WIZARDS_ALLOWED) {
-      tower.enter(wizard);
+      tower.enter(user);
       numWizards++;
     } else {
-      LOGGER.info("{} is not allowed to enter!", wizard);
+      LOGGER.info("{} is not allowed to enter!", user);
     }
   }
 }
@@ -102,11 +102,11 @@ And here is tower entering scenario
 
 ```
 WizardTowerProxy proxy = new WizardTowerProxy(new IvoryTower());
-proxy.enter(new Wizard("Red wizard")); // Red wizard enters the tower.
-proxy.enter(new Wizard("White wizard")); // White wizard enters the tower.
-proxy.enter(new Wizard("Black wizard")); // Black wizard enters the tower.
-proxy.enter(new Wizard("Green wizard")); // Green wizard is not allowed to enter!
-proxy.enter(new Wizard("Brown wizard")); // Brown wizard is not allowed to enter!
+proxy.enter(new Wizard("Red user")); // Red user enters the tower.
+proxy.enter(new Wizard("White user")); // White user enters the tower.
+proxy.enter(new Wizard("Black user")); // Black user enters the tower.
+proxy.enter(new Wizard("Green user")); // Green user is not allowed to enter!
+proxy.enter(new Wizard("Brown user")); // Brown user is not allowed to enter!
 ```
 
 ## Applicability
